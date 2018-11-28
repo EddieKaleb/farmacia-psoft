@@ -1,3 +1,24 @@
-<p>
-  product works!
-</p>
+
+<a class="br4 mt5 mr3 ml3 shadow-1 grow tc w6 h6 relative pt3 dib item">
+  <div class="absolute top-0 right-2 shadow-4 ph1 pt4 pb2 fw9 white bg-red f7"
+       *ngIf="product.promo">
+    -{{product.promo}}%
+  </div>
+  
+  <img [src]="product.image" height="200">
+  
+  <div class="absolute bottom-0 left-0 w-100">
+  
+    <label class="f4 db">{{product.name}}</label>
+    <label class="mb4 f6 gray db">{{product.quant}}</label>
+    <label class="f6 gray db ml--2" *ngIf="product.promo">de <s>R$ {{product.oldPrice}}</s></label>
+    <label class="mb2 f2 dark-blue db" ngClass="ml--2:product.promo">
+      <span class="f6 gray" *ngIf="product.promo">por: </span>R$ {{product.newPrice}}
+    </label>
+    
+    <button class="bg-blue dim link w-100 pv3 br4 br--bottom bn white visi">
+      RESERVAR
+    </button>
+
+  </div>
+</a>
