@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductsService } from '../service/products.service';
-import Product from '../model/product.module';
 
 @Component({
   selector: 'app-list-products',
@@ -8,12 +6,64 @@ import Product from '../model/product.module';
   styleUrls: ['./list-products.component.css']
 })
 export class ListProductsComponent implements OnInit {
-  products: Array<Product>;
+  products: Array<any>;
 
-  constructor(private productsService: ProductsService) { }
+  constructor() { }
 
   ngOnInit() {
-   this.products =  this.productsService.getProducts();
+    this.products = [
+      
+      {
+        name: "Escova de dentes",
+        oldPrice: "5,00",
+        newPrice: "5,00",
+        image: "assets/img/escova.png",
+        quant: "2 unidades",
+        promo: 0
+      },
+      {
+        name: "Pasta de dentes",
+        oldPrice: "3,00",
+        newPrice: "2,50",
+        image: "assets/img/pasta.png",
+        quant: "30ml",
+        promo: 30
+      },
+      {
+        name: "Escova de dentes",
+        oldPrice: "5,00",
+        newPrice: "5,00",
+        image: "assets/img/escova.png",
+        quant: "2 unidades",
+        promo: 0
+      },
+      {
+        name: "Pasta de dentes",
+        oldPrice: "3,00",
+        newPrice: "2,50",
+        image: "assets/img/pasta.png",
+        quant: "30ml",
+        promo: 30
+      },
+      {
+        name: "Escova de dentes",
+        oldPrice: "5,00",
+        newPrice: "5,00",
+        image: "assets/img/escova.png",
+        quant: "2 unidades",
+        promo: 0
+      },
+      {
+        name: "Pasta de dentes",
+        oldPrice: "3,00",
+        newPrice: "2,50",
+        image: "assets/img/pasta.png",
+        quant: "30ml",
+        promo: 30
+      },
+  
+     
+    ]
   }
 
 }
