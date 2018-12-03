@@ -1,10 +1,10 @@
 
 <a class="br4 mt5 mr3 ml3 shadow-1 grow tc w6 h6 relative pt3 dib item">
-  <div class="absolute top-0 right-2 shadow-4 ph1 pt4 pb2 fw9 white bg-red f7"
-       *ngIf="product.promo">
-    -{{product.promo}}%
+
+  <div class="absolute top-0 right-1 imgb w3 h3 pt4" *ngIf="product.promo">
+    <label class="fw9 f7 white">-{{product.promo}}%</label>
   </div>
-  
+
   <img [src]="product.image" height="200">
   
   <div class="absolute bottom-0 left-0 w-100">
