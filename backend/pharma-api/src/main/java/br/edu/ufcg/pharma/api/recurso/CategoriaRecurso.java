@@ -3,6 +3,8 @@ package br.edu.ufcg.pharma.api.recurso;
 import java.net.URI;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,12 +34,20 @@ public class CategoriaRecurso {
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity<Categoria> criar(@RequestBody Categoria categoria) {
-		Categoria categoriaSalva = categoriaRepositorio.save(categoria);
+	public ResponseEntity<Categoria> criar(@RequestBody @Valid Categoria categoria) {
+		try {
+			Categoria categoriaSalva = categoriaRepositorio.save(categoria);
+			
+			URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}")
+					.buildAndExpand(categoriaSalva.getId()).toUri();
+			
+			return ResponseEntity.created(uri).body(categoriaSalva);
+			
+		} catch (Exception e) {
+			System.out.println(e.toString());
+		}
+		return ResponseEntity.badRequest().build();
 		
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}")
-				.buildAndExpand(categoriaSalva.getId()).toUri();
-		return ResponseEntity.created(uri).body(categoriaSalva);
 	}
 	
 	@GetMapping("/{id}")
