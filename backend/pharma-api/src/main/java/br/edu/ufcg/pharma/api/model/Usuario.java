@@ -21,7 +21,9 @@ public class Usuario {
 	@Column(name = "NOME")
 	private String nome;
 	
+	@Id
 	@Column(name = "CPF", unique = true)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String cpf;
 	
 	@Column(name = "RG", unique = true)
