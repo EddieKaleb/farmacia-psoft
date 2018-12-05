@@ -1,0 +1,29 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+main {
+    display: grid;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    grid-template-columns: 1fr 5fr 1fr;
+}
+
+#sessao {
+    font-family: sans-serif;
+    font-weight: 300;
+    grid-column: 3;
+    display: flex;
+    column-gap: 10px;
+    align-self: center;
+}
+
+#sessao > p:hover {
+    text-decoration: underline;
+}
+
+
+#login {
+
+}
