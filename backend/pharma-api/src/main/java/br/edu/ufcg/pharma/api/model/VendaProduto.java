@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "VENDA_PRODUTO")
@@ -22,15 +23,19 @@ public class VendaProduto {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Produto produto;
 	
+	@NotNull
 	@Column(name = "VALOR_UNITARIO")
 	private double valorUnitario;
 	
+	@NotNull
 	@Column(name = "VALOR_SUBTOTAL")
 	private double valorSubtotal;
 	
+	@NotNull
 	@Column(name = "VALOR_TOTAL")
 	private double valorTotal;
 	
+	@NotNull
 	@Column(name = "QUANTIDADE")
 	private Integer quantidade;
 

@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "LOTE")
@@ -21,19 +22,24 @@ public class Lote {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	
+	@NotNull
 	@Column(name = "GTIN", unique = true)
 	private String gtin;
 	
+	@NotNull
 	@Column(name = "QUANTIDADE")
 	private Integer quantidade;
 	
+	@NotNull
 	@Column(name = "VALIDADE")
 	private Date validade;
 	
+	@NotNull
 	@OneToOne
 	@JoinColumn(name = "LOTE_SITUACAO_ID")
 	private LoteSituacao situacao;
 	
+	@NotNull
 	@ManyToOne
 	@JoinColumn(name = "PRODUTO_ID")
 	private Produto produto;

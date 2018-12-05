@@ -9,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "PRODUTO")
@@ -19,19 +20,24 @@ public class Produto {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	
+	@NotNull
 	@Column(name = "NOME")
 	private String nome;
 	
+	@NotNull
 	@Column(name = "NOME_FABRICANTE")
 	private String nomeFabricante;
 	
+	@NotNull
 	@Column(name = "PRECO")
 	private Double preco;
 	
+	@NotNull
 	@ManyToOne
 	@JoinColumn(name = "CATEGORIA_ID")
 	private Categoria categoria;
 	
+	@NotNull
 	@OneToOne
 	@JoinColumn(name = "PRODUTO_SITUACAO_ID")
 	private ProdutoSituacao situacao;

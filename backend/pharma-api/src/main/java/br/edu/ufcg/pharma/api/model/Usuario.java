@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "USUARIO")
@@ -18,26 +19,32 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	
+	@NotNull
 	@Column(name = "NOME")
 	private String nome;
 	
+	@NotNull
 	@Id
 	@Column(name = "CPF", unique = true)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String cpf;
 	
+	@NotNull
 	@Column(name = "RG", unique = true)
 	private String rg;
 	
+	@NotNull
 	@Column(name = "SENHA")
 	private String senha;
 	
 	@Column(name = "ENDERECO")
 	private String endereco;
 	
+	@NotNull
 	@Column(name = "EMAIL", unique = true)
 	private String email;
 	
+	@NotNull
 	@OneToOne
 	@JoinColumn(name = "TIPO_USUARIO_ID")
 	private TipoUsuario tipo;

@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "VENDA")
@@ -20,19 +21,24 @@ public class Venda {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	
+	@NotNull
 	@Column(name = "VALOR_SUBTOTAL")
 	private Double valorSubtotal;
 	
+	@NotNull
 	@Column(name = "VALOR_TOTAL")
 	private Double valorTotal;
 	
+	@NotNull
 	@Column(name = "DATA")
 	private Date data;
 	
+	@NotNull
 	@ManyToOne
 	@Column(name = "USUARIO_ID")
 	private Usuario cliente;
 	
+	@NotNull
 	@OneToOne
 	@Column(name = "VENDA_STATUS_ID")
 	private VendaStatus status;

@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "ESTOQUE")
@@ -26,6 +27,7 @@ public class Estoque {
 	@Column(name = "RECEITA")
 	private Double receita;
 	
+	@NotNull
 	@JoinColumn(name = "PRODUTO_ID")
 	private Produto produto;
 
