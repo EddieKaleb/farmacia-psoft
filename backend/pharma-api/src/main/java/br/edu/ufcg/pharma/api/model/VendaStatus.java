@@ -9,9 +9,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "DESCONTO")
-public class Desconto {
-
+@Table(name = "VENDA_STATUS")
+public class VendaStatus {
 	@Id
 	@Column(name = "ID")
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,11 +18,7 @@ public class Desconto {
 	
 	@NotNull
 	@Column(name = "NOME")
-	private String nome;
-	
-	@NotNull
-	@Column(name = "PORCENTAGEM")
-	private Double porcentagem;
+	private String status;
 
 	public Integer getId() {
 		return id;
@@ -33,27 +28,19 @@ public class Desconto {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getStatus() {
+		return status;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public Double getPorcentagem() {
-		return porcentagem;
-	}
-
-	public void setPorcentagem(Double porcentagem) {
-		this.porcentagem = porcentagem;
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + id;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
 
@@ -65,10 +52,12 @@ public class Desconto {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Desconto other = (Desconto) obj;
-		if (id != other.id)
+		VendaStatus other = (VendaStatus) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
 			return false;
 		return true;
 	}
-	
 }

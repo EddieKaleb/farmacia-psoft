@@ -9,21 +9,17 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "DESCONTO")
-public class Desconto {
-
+@Table(name = "USUARIO_TIPO")
+public class TipoUsuario {
+	
 	@Id
 	@Column(name = "ID")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	
 	@NotNull
-	@Column(name = "NOME")
-	private String nome;
-	
-	@NotNull
-	@Column(name = "PORCENTAGEM")
-	private Double porcentagem;
+	@Column(name = "PAPEL")
+	private String papel;
 
 	public Integer getId() {
 		return id;
@@ -33,27 +29,19 @@ public class Desconto {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getPapel() {
+		return papel;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public Double getPorcentagem() {
-		return porcentagem;
-	}
-
-	public void setPorcentagem(Double porcentagem) {
-		this.porcentagem = porcentagem;
+	public void setPapel(String papel) {
+		this.papel = papel;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + id;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
 
@@ -65,10 +53,12 @@ public class Desconto {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Desconto other = (Desconto) obj;
-		if (id != other.id)
+		TipoUsuario other = (TipoUsuario) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
 			return false;
 		return true;
 	}
-	
 }
