@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -30,10 +29,6 @@ public class Reserva {
 	@OneToOne
 	@JoinColumn(name = "VENDA_ID")
 	private Venda venda;
-	
-	@ManyToOne
-	@JoinColumn(name = "USUARIO_ID")
-	private Usuario usuario;
 
 	public Integer getId() {
 		return id;
@@ -65,14 +60,6 @@ public class Reserva {
 
 	public void setVenda(Venda venda) {
 		this.venda = venda;
-	}
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
 	}
 
 	@Override
