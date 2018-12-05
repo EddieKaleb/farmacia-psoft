@@ -21,10 +21,10 @@ public class Usuario {
 	@Column(name = "NOME")
 	private String nome;
 	
-	@Column(name = "CPF")
+	@Column(name = "CPF", unique = true)
 	private String cpf;
 	
-	@Column(name = "RG")
+	@Column(name = "RG", unique = true)
 	private String rg;
 	
 	@Column(name = "SENHA")
@@ -33,7 +33,7 @@ public class Usuario {
 	@Column(name = "ENDERECO")
 	private String endereco;
 	
-	@Column(name = "EMAIL")
+	@Column(name = "EMAIL", unique = true)
 	private String email;
 	
 	@OneToOne

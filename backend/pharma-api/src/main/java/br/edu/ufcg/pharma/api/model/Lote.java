@@ -21,7 +21,7 @@ public class Lote {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@Column(name = "GTIN")
+	@Column(name = "GTIN", unique = true)
 	private String gtin;
 	
 	@Column(name = "QUANTIDADE")
