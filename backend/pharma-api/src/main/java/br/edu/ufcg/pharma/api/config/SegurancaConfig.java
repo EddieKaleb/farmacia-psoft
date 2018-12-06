@@ -7,6 +7,10 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 
+/**
+ * Basic Auth
+ * @author eddieklf
+ */
 @Configuration
 @EnableWebSecurity
 public class SegurancaConfig extends WebSecurityConfigurerAdapter{
@@ -22,8 +26,8 @@ public class SegurancaConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-				.antMatchers("/descontos").permitAll()
-				.anyRequest().authenticated()
+				//.anyRequest().authenticated()
+			    .anyRequest().permitAll()
 				.and()
 			.httpBasic().and()
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
