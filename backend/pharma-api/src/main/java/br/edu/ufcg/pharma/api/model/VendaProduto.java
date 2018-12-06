@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -14,14 +16,18 @@ import javax.validation.constraints.NotNull;
 @Table(name = "VENDA_PRODUTO")
 public class VendaProduto implements Serializable {
 	
-	
+	private static final long serialVersionUID = 1L;
+
 	@Id
+	@Column(name = "ID")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	
 	@NotNull
 	@ManyToOne
 	@JoinColumn(name = "VENDA_ID")
 	private Venda venda;
 
-	@Id
 	@NotNull
 	@ManyToOne
 	@JoinColumn(name = "PRODUTO_ID")
