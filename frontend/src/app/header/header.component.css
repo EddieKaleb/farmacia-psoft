@@ -5,9 +5,9 @@
 
 main {
     display: grid;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    grid-template-columns: 1fr 5fr 1fr;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    grid-template-columns: max-content 5fr 1fr;
 }
 
 #sessao {
@@ -15,7 +15,7 @@ main {
     font-weight: 300;
     grid-column: 3;
     display: flex;
-    column-gap: 10px;
+    column-gap: 3px;
     align-self: center;
 }
 
@@ -23,7 +23,11 @@ main {
     text-decoration: underline;
 }
 
+img {
+    height: 60px;
+    padding-left: 30px;
 
+}
 #login {
 
 }

@@ -18,16 +18,20 @@ main {
     padding-top: 10px;
     padding-bottom: 10px;
     
-    padding-left: 25%;
-    padding-right: 25%;
+    padding-left: 15%;
+    padding-right: 15%;
     color: white;
 
 }
 
 .tipo{
-    font-weight: 600;
-
+    font-family: sans-serif;
+    text-align: center;
 }
+#container > div {
+    align-self: center;
+}
+
 .tipo:hover{
     text-decoration: underline;
     text-decoration-color: white;
