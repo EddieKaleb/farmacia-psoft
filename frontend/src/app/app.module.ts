@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListProductsComponent } from './list-products/list-products.component';
-import { ProductComponent } from './list-products/product/product.component';
+import { ProductCardComponent } from './list-products/product-card/product-card.component';
 import { MenuComponent } from './menu/menu.component';
 import { HeaderComponent } from './header/header.component';
 
@@ -12,7 +12,7 @@ import { HeaderComponent } from './header/header.component';
   declarations: [
     AppComponent,
     ListProductsComponent,
-    ProductComponent,
+    ProductCardComponent,
     MenuComponent,
     HeaderComponent
   ],
