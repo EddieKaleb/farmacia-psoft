@@ -10,6 +10,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.br.CPF;
 
 @Entity
@@ -41,6 +42,7 @@ public class Usuario {
 	@Column(name = "ENDERECO")
 	private String endereco;
 	
+	@Email
 	@NotNull
 	@Column(name = "EMAIL", unique = true)
 	private String email;
