@@ -38,7 +38,7 @@ public class Produto {
 	private Categoria categoria;
 	
 	@NotNull
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "PRODUTO_SITUACAO_ID")
 	private ProdutoSituacao situacao;
 

@@ -10,6 +10,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.br.CPF;
+
 @Entity
 @Table(name = "USUARIO")
 public class Usuario {
@@ -23,10 +25,9 @@ public class Usuario {
 	@Column(name = "NOME")
 	private String nome;
 	
+	@CPF
 	@NotNull
-	@Id
 	@Column(name = "CPF", unique = true)
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String cpf;
 	
 	@NotNull

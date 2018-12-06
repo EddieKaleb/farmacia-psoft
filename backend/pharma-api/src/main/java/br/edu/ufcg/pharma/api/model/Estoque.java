@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -28,6 +29,7 @@ public class Estoque {
 	private Double receita;
 	
 	@NotNull
+	@ManyToOne
 	@JoinColumn(name = "PRODUTO_ID")
 	private Produto produto;
 
