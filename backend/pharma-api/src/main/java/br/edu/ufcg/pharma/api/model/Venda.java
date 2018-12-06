@@ -7,7 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -35,12 +37,12 @@ public class Venda {
 	
 	@NotNull
 	@ManyToOne
-	@Column(name = "USUARIO_ID")
+    @JoinColumn(name = "USUARIO_ID")
 	private Usuario cliente;
 	
 	@NotNull
-	@OneToOne
-	@Column(name = "VENDA_STATUS_ID")
+	@ManyToOne
+    @JoinColumn(name = "VENDA_STATUS_ID")
 	private VendaStatus status;
 
 	public Integer getId() {
