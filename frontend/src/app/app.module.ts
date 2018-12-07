@@ -7,6 +7,8 @@ import { ListProductsComponent } from './list-products/list-products.component';
 import { ProductCardComponent } from './list-products/product-card/product-card.component';
 import { MenuComponent } from './menu/menu.component';
 import { HeaderComponent } from './header/header.component';
+import { LoginComponent } from './login/login.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -14,13 +16,16 @@ import { HeaderComponent } from './header/header.component';
     ListProductsComponent,
     ProductCardComponent,
     MenuComponent,
-    HeaderComponent
+    HeaderComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ModalModule.forRoot()
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [LoginComponent],
 })
 export class AppModule { }
