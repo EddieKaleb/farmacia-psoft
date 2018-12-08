@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductsService } from '../service/products.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-list-products',
@@ -7,63 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListProductsComponent implements OnInit {
   products: Array<any>;
+  category;
+  constructor(private productsService: ProductsService,
+              private route: ActivatedRoute) { 
 
-  constructor() { }
+  }
 
   ngOnInit() {
-    this.products = [
-      
-      {
-        name: "Escova de dentes",
-        oldPrice: "5,00",
-        newPrice: "5,00",
-        image: "assets/img/escova.png",
-        quant: "2 unidades",
-        promo: 0
-      },
-      {
-        name: "Pasta de dentes",
-        oldPrice: "3,00",
-        newPrice: "2,50",
-        image: "assets/img/pasta.png",
-        quant: "30ml",
-        promo: 30
-      },
-      {
-        name: "Escova de dentes",
-        oldPrice: "5,00",
-        newPrice: "5,00",
-        image: "assets/img/escova.png",
-        quant: "2 unidades",
-        promo: 0
-      },
-      {
-        name: "Pasta de dentes",
-        oldPrice: "3,00",
-        newPrice: "2,50",
-        image: "assets/img/pasta.png",
-        quant: "30ml",
-        promo: 30
-      },
-      {
-        name: "Escova de dentes",
-        oldPrice: "5,00",
-        newPrice: "5,00",
-        image: "assets/img/escova.png",
-        quant: "2 unidades",
-        promo: 0
-      },
-      {
-        name: "Pasta de dentes",
-        oldPrice: "3,00",
-        newPrice: "2,50",
-        image: "assets/img/pasta.png",
-        quant: "30ml",
-        promo: 30
-      },
-  
-     
-    ]
+    
+    this.route.params.subscribe(
+      (params) => this.products = this.productsService.getProductsCategory(params['category']));
+    
   }
 
 }

@@ -15,9 +15,6 @@ main {
 #container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    padding-top: 10px;
-    padding-bottom: 10px;
-    
     padding-left: 15%;
     padding-right: 15%;
     color: white;
@@ -27,12 +24,23 @@ main {
 .tipo{
     font-family: sans-serif;
     text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 #container > div {
     align-self: center;
 }
 
 .tipo:hover{
-    text-decoration: underline;
+    cursor: pointer;
     text-decoration-color: white;
+    background-color: #39bbe2ce;
+}
+
+.tipo:active{
+    transform: scale(0.96);
+}
+
+.active{
+    background-color: #39bbe2ce;
 }
