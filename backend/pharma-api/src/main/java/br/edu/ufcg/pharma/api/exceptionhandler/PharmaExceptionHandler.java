@@ -30,7 +30,6 @@ public class PharmaExceptionHandler extends ResponseEntityExceptionHandler {
 	@Override
 	protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex,
 			HttpHeaders headers, HttpStatus status, WebRequest request) {
-		
 		String mensagemUsr = messageSource.getMessage("mensagem.invalida", null, LocaleContextHolder.getLocale());
 		String mensagemDev = ex.getCause().toString();
 		
@@ -41,16 +40,14 @@ public class PharmaExceptionHandler extends ResponseEntityExceptionHandler {
 	@Override
 	protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
 			HttpHeaders headers, HttpStatus status, WebRequest request) {
-		
 		List<Erro> erros = criarListaDeErros(ex.getBindingResult());
-	
 		return handleExceptionInternal(ex, erros, headers, HttpStatus.BAD_REQUEST, request);
 	}
 	
 	@ExceptionHandler({ EmptyResultDataAccessException.class })
 	public ResponseEntity<Object> handleEmptyResultDataAccessException(EmptyResultDataAccessException ex, WebRequest request) {
 		String mensagemUsr = messageSource.getMessage("recurso.nao-encontrado", null, LocaleContextHolder.getLocale());
-		String mensagemDev = ex.toString();
+		String mensagemDev = ex.getCause() != null ? ex.getCause().toString() : ex.toString();
 		List<Erro> erros = Arrays.asList(new Erro(mensagemUsr,mensagemDev));
 		return handleExceptionInternal(ex, erros, new HttpHeaders(), HttpStatus.NOT_FOUND, request);
 	}
@@ -58,7 +55,7 @@ public class PharmaExceptionHandler extends ResponseEntityExceptionHandler {
 	
 	private List<Erro> criarListaDeErros(BindingResult bindingResult) {
 		List<Erro> erros = new ArrayList<>();
-		
+
 		for (FieldError fieldError : bindingResult.getFieldErrors()) {
 			String mensagemUsr = messageSource.getMessage(fieldError, LocaleContextHolder.getLocale());
 			String mensagemDev = fieldError.toString();
@@ -66,7 +63,6 @@ public class PharmaExceptionHandler extends ResponseEntityExceptionHandler {
 		}
 		return erros;
 	}
-
 
 	/**
 	 * Model para mensagem de erro do usuario e desenvolvedor

@@ -15,13 +15,24 @@ public class CategoriaServico {
 	CategoriaRepositorio categoriaRepositorio;
 
 	public Categoria atualizar(Integer id, Categoria categoria) {
+		Categoria categoriaSalva = buscarCategoriaPorId(id);
+
+		BeanUtils.copyProperties(categoria, categoriaSalva, "id");
+		return categoriaRepositorio.save(categoriaSalva);
+	}
+
+	public void atualizarNome(Integer id, String nome) {
+		Categoria categoriaSalva = buscarCategoriaPorId(id);
+		categoriaSalva.setNome(nome);
+		this.categoriaRepositorio.save(categoriaSalva);
+	}
+	
+	private Categoria buscarCategoriaPorId(Integer id) {
 		Categoria categoriaSalva = categoriaRepositorio.findOne(id);
 
 		if (categoriaSalva == null) {
 			throw new EmptyResultDataAccessException(1);
 		}
-
-		BeanUtils.copyProperties(categoria, categoriaSalva, "id");
-		return categoriaRepositorio.save(categoriaSalva);
+		return categoriaSalva;
 	}
 }

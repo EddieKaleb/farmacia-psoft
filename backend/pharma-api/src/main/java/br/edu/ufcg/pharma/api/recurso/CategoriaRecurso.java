@@ -66,5 +66,14 @@ public class CategoriaRecurso {
 		Categoria categoriaSalva = this.categoriaServico.atualizar(id, categoria);
 		return ResponseEntity.ok(categoriaSalva);
 	}
+	
+	/**
+	 * Exemplo de atualizacao parcial caso for preciso
+	 */
+	@PutMapping("/{id}/nome")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public void atualizarNome(@PathVariable Integer id, @RequestBody String nome) {
+		this.categoriaServico.atualizarNome(id, nome);
+	}
 
 }
