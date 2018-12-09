@@ -68,7 +68,8 @@ public class CategoriaRecurso {
 	}
 	
 	/**
-	 * Exemplo de atualizacao parcial caso for preciso
+	 * Exemplo de atualizacao parcial caso realmente for preciso por ser necessario 
+	 * fazer a validacao manualmente.
 	 */
 	@PutMapping("/{id}/nome")
 	@ResponseStatus(HttpStatus.NO_CONTENT)

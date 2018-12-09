@@ -22,7 +22,7 @@ public class Categoria {
 	private Integer id;
 	
 	@NotNull
-	@Size(min = 2, max = 30)
+	@Size(min = 1, max = 30)
 	@Column(name = "NOME")
 	private String nome;
 	

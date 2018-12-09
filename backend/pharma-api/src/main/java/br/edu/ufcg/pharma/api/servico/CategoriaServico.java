@@ -23,8 +23,12 @@ public class CategoriaServico {
 
 	public void atualizarNome(Integer id, String nome) {
 		Categoria categoriaSalva = buscarCategoriaPorId(id);
-		categoriaSalva.setNome(nome);
-		this.categoriaRepositorio.save(categoriaSalva);
+		if (nome.length() > 0 && nome.length() <= 30) {
+			categoriaSalva.setNome(nome);
+			this.categoriaRepositorio.save(categoriaSalva);
+		} else {
+			throw new EmptyResultDataAccessException(1);
+		}
 	}
 	
 	private Categoria buscarCategoriaPorId(Integer id) {
