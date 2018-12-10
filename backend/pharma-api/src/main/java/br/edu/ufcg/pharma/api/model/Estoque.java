@@ -9,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "ESTOQUE")
@@ -22,6 +23,7 @@ public class Estoque {
 	@Column(name = "QUANTIDADE")
 	private Integer quantidade;
 	
+	@Size(min = 1, max = 50)
 	@Column(name = "SITUACAO")
 	private String situacao;
 	

@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "PRODUTO_SITUACAO")
@@ -18,6 +19,7 @@ public class ProdutoSituacao {
 	private Integer id;
 	
 	@NotNull
+	@Size(min = 1, max = 30)
 	@Column(name = "NOME")
 	private String situacao;
 

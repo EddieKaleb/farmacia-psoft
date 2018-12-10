@@ -9,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.br.CPF;
@@ -23,6 +24,7 @@ public class Usuario {
 	private Integer id;
 	
 	@NotNull
+	@Size(min = 1, max = 150)
 	@Column(name = "NOME")
 	private String nome;
 	
@@ -32,13 +34,16 @@ public class Usuario {
 	private String cpf;
 	
 	@NotNull
+	@Size(min = 1, max = 30)
 	@Column(name = "RG", unique = true)
 	private String rg;
 	
 	@NotNull
+	@Size(min = 1, max = 30)
 	@Column(name = "SENHA")
 	private String senha;
 	
+	@Size(min = 1, max = 100)
 	@Column(name = "ENDERECO")
 	private String endereco;
 	
