@@ -7,6 +7,8 @@
 
 .visi {visibility: hidden;}
 
+.item:hover{cursor: pointer;}
+
 .item:hover .visi {visibility: visible;}
   
 .h6 {height: 25rem;}
