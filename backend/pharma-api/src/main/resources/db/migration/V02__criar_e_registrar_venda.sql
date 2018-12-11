@@ -100,7 +100,11 @@ INSERT INTO USUARIO_TIPO (PAPEL) VALUES
 ("Admin"), 
 ("Cliente"); 
 
-# Senha gerada pelo Bcrypt 
+# Senha gerada manualmente usando Bcrypt 
+# email: eddie.fernandes@ccc.ufcg.edu.br / senha: admin
+# email: rayla.araujo@ccc.ufcg.edu.br / senha: cliente
+# usar o Postman pra testar, seleciona Basic Auth, preenche o form com email e senha,
+# clica em Preview Request pra atualizar o header da requisição
 INSERT INTO USUARIO (NOME, CPF, RG, SENHA, ENDERECO, EMAIL, TIPO_USUARIO_ID) VALUES
 ("Eddie Kaleb", "07439341481", "3502801", "$2a$04$XPNLLvSUKw3Ey/ffVcjZpOCngWq.uThA3fNkRTiM90r6CzMo4KJNu", "Rua X", "eddie.fernandes@ccc.ufcg.edu.br", 1),
 ("Rayla Medeiros", "83768270491", "3502802", "$2a$04$R2/2pMFKemF9.QX9JMyh9.8jV3x3jU32MT1BJ9BahcPhonO46/cOu", "Rua W", "rayla.araujo@ccc.ufcg.edu.br", 2);
