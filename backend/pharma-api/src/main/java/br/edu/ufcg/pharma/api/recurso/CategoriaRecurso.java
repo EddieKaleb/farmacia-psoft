@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -43,6 +44,7 @@ public class CategoriaRecurso {
 	}
 
 	@PostMapping
+	@PreAuthorize("hasAuthority('ADMIN')")
 	public ResponseEntity<Categoria> criar(@RequestBody @Valid Categoria categoria, HttpServletResponse resposta) {
 		Categoria categoriaSalva = this.categoriaRepositorio.save(categoria);
 		publisher.publishEvent(new RecursoCriadoEvento(this, resposta, categoriaSalva.getId()));
