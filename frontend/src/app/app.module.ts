@@ -9,6 +9,10 @@ import { MenuComponent } from './menu/menu.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { AdminComponent } from './admin/admin.component';
+import { AdminMenuComponent } from './admin/admin-menu/admin-menu.component';
+import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
+import { ProductListItemComponent } from './admin/admin-products/product-list-item/product-list-item.component';
 
 
 @NgModule({
@@ -18,7 +22,11 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     ProductCardComponent,
     MenuComponent,
     HeaderComponent,
-    LoginComponent
+    LoginComponent,
+    AdminComponent,
+    AdminMenuComponent,
+    AdminProductsComponent,
+    ProductListItemComponent
   ],
   imports: [
     BrowserModule,
