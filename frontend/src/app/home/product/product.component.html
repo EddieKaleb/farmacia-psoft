@@ -1,0 +1,20 @@
+<section class="relative">
+    
+      <img [src]="product.image" height="200">
+      
+      <div class="w-100">
+      
+        <label class="f4 db">{{product.name}}</label>
+        <label class="mb4 f6 gray db">{{product.quant}}</label>
+        <label class="f6 gray db ml--2" *ngIf="product.promo">de <s>R$ {{product.oldPrice}}</s></label>
+        <label class="mb2 f2 dark-blue db" ngClass="ml--2:product.promo">
+          <span class="f6 gray" *ngIf="product.promo">por: </span>R$ {{product.newPrice}}
+        </label>
+        
+        <button class="bg-blue dim link w3 pv3 br4 br--bottom bn white visi">
+          RESERVAR
+        </button>
+    
+      </div>
+
+</section>
