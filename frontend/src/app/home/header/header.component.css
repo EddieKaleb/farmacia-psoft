@@ -1,0 +1,52 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+main {
+    display: grid;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    grid-template-columns: max-content 3fr 1fr;
+}
+
+#sessao {
+    font-family: sans-serif;
+    font-weight: 300;
+    grid-column: 3;
+    display: flex;
+    column-gap: 8px;
+    align-self: center;
+    font-size: 1.3rem; 
+    opacity: .5;
+}
+
+#sessao > p:hover {
+    text-decoration: underline;
+}
+
+
+#sessao2 {
+    align-self: center;
+    grid-column: 3;
+    column-gap: 1px;
+    opacity: .5;
+}
+
+.icon {
+    height: 50px;
+}
+
+#user-icon {
+    margin-left: 50px;
+    height: 45px;
+}
+
+#logo {
+    height: 80px;
+    margin-left: 10vw;
+
+}
+.lc:hover {
+    cursor: pointer;
+}   

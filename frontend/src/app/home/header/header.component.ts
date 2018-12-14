@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { BsModalService, BsModalRef} from 'ngx-bootstrap/modal';
+import { BsModalService } from 'ngx-bootstrap/modal';
 import { LoginComponent } from '../login/login.component';
+import { RegisterComponent } from '../register/register.component';
 
 @Component({
   selector: 'app-header',
@@ -8,6 +9,9 @@ import { LoginComponent } from '../login/login.component';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+
+  statusLogin = false;
+
 
   constructor(private modalService: BsModalService) { }
   
@@ -19,5 +23,10 @@ export class HeaderComponent implements OnInit {
   openLogin(){
     this.modalService.show(LoginComponent);
   }
+
+  openRegister(){
+    this.modalService.show(RegisterComponent);
+  }
+
 
 }

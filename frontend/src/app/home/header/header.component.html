@@ -1,0 +1,13 @@
+<main>
+    <img id="logo" src="/assets/img/logo.png" alt="logo" 
+        [routerLink]="['/']" class="lc">
+    <div id="sessao" class="lc" *ngIf="!statusLogin">
+        <span (click)="openLogin()">Login</span> |
+        <span (click)="openRegister()">Cadastro</span>
+    </div>
+    <div id="sessao2" *ngIf="statusLogin">
+        <img src="assets/img/shopping-cart.png" class="icon lc">
+        <img src="assets/img/user(2).png" id="user-icon" class="lc">
+    </div>
+</main>
+<app-menu></app-menu>

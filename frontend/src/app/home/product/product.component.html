@@ -1,0 +1,29 @@
+<section id="mainp">
+    <img [src]="product.image" id="img-h">
+     
+    <div class="infop">
+      <h3>{{product.name}}</h3>
+      <h6 class="mb4 gray">{{product.quant}}</h6>
+      <h6 class="gray" *ngIf="product.promo">
+        de <s>R$ {{product.oldPrice}}</s>
+        <span class="red"> ({{product.promo}}% de desconto)</span>
+      </h6>
+      <h2 class="mb2 dark-blue">
+        <span class="f6 gray" *ngIf="product.promo">por: </span>
+        R$ {{product.newPrice}}
+      </h2>
+      
+      <button class="bg-blue dim link w4 pt2 pb1 br2 bn white f6 mr2">
+        RESERVAR
+      </button>
+      <input class="w3" type="number" min="1" value="1">  
+    </div>
+
+    <div class="infop">
+      <h3 class="o-50">Descrição</h3>
+      <p>
+        Blalalalalalallalalalaa
+      </p>
+    </div>
+
+</section>
