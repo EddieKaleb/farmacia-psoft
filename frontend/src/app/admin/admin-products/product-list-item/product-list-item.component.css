@@ -1,0 +1,19 @@
+main{
+    padding-top: 2px;
+    padding-bottom:2px;
+    border: solid;
+    border-color: #dcdcdc;
+    border-radius: 15px;
+    display: grid;
+    grid-template-columns: 200px 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    font-size: 12px;
+}
+
+img {
+    height: 150px;
+    grid-row: 1 / 4;
+    grid-column: 1;
+    border-radius: 20px;
+
+}
