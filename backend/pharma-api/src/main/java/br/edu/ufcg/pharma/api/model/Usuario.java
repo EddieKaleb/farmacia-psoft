@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -39,7 +40,7 @@ public class Usuario {
 	private String rg;
 	
 	@NotNull
-	@Size(min = 1, max = 30)
+	@Size(min = 1, max = 300)
 	@Column(name = "SENHA")
 	private String senha;
 	
@@ -49,7 +50,8 @@ public class Usuario {
 	
 	@Email
 	@NotNull
-	@Column(name = "EMAIL", unique = true)
+	@Size(min = 1, max = 50)
+	@Column(name = "EMAIL")
 	private String email;
 	
 	@NotNull
