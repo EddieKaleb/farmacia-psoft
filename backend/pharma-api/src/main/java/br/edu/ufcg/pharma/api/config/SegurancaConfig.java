@@ -38,6 +38,7 @@ public class SegurancaConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
+				.antMatchers("/produtos").permitAll()
 				.anyRequest().authenticated()
 				.and()
 			.httpBasic().and()
