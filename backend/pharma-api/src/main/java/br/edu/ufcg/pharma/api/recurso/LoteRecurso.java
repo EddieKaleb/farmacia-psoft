@@ -47,7 +47,7 @@ public class LoteRecurso {
 	@PostMapping
 	@PreAuthorize("hasAuthority('ADMIN')")
 	public ResponseEntity<Lote> criar(@RequestBody @Valid Lote lote, HttpServletResponse resposta) {
-		Lote loteSalvo = this.loteRepositorio.save(lote);
+		Lote loteSalvo = this.loteServico.salvar(lote);
 		publisher.publishEvent(new RecursoCriadoEvento(this, resposta, loteSalvo.getId()));
 		return ResponseEntity.status(HttpStatus.CREATED).body(loteSalvo);
 	}

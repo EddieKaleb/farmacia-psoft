@@ -27,8 +27,9 @@ public class UsuarioDetalhesServico implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 		Usuario usuario = usuarioRepositorio.findByEmail(email);
-		if (usuario == null)
-				throw new UsernameNotFoundException("Usuário e/ou senha incorretos");
+		if (usuario == null) {
+			throw new UsernameNotFoundException("Usuário e/ou senha incorretos");
+		}
 		return new User(email, usuario.getSenha(), getPermissoes(usuario));
 	}
 
