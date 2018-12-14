@@ -1,5 +1,6 @@
 <main>
-    <img id="logo" src="/assets/img/logo.png" alt="logo" [routerLink]="['/']" class="lc">
+    <img id="logo" src="/assets/img/logo.png" alt="logo" 
+        [routerLink]="['/']" class="lc">
     <div id="sessao" class="lc" *ngIf="!statusLogin">
         <span (click)="openLogin()">Login</span> |
         <span (click)="openRegister()">Cadastro</span>

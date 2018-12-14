@@ -4,13 +4,15 @@ import { ListProductsComponent } from './home/list-products/list-products.compon
 import { AdminComponent } from './admin/admin.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { HomeComponent } from './home/home.component';
+import { ProductComponent } from './home/product/product.component';
 
 const routes: Routes = [
   {path:'', component: HomeComponent,
    children: [
     {path:'', component: ListProductsComponent},
     {path:'products/:category', component: ListProductsComponent},
-   ]},
+    {path:'product', component: ProductComponent},
+  ]},
   {path: 'admin', component: AdminComponent,
    children: [
     {path:'products', component: AdminProductsComponent},

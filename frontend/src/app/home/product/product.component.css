@@ -1,23 +1,24 @@
 .w6 {width:16rem;}
 
-
-.shadow-1 {box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.050);}
-
-.grow:active {transform: scale(1.03);}
-
-.visi {visibility: hidden;}
-
-.item:hover{cursor: pointer;}
-
-.item:hover .visi {visibility: visible;}
-  
 .h6 {height: 25rem;}
 
 .ml--2 {margin-left: -2rem;}
 
 .pt4 { padding-top: 17px}
 
-#infop{
+#mainp{
     width: 100vw; 
-    box-shadow: 10px 10px rgba(0, 0, 0, 0.267);
+    box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.192);
+    margin-top: 3rem;
+    display: grid;
+    column-gap: 10px;
+    grid-template-columns: 2fr 2fr 2fr;
+}
+
+#img-h{
+    height: 22rem;
+}
+
+.infop{
+    align-self: center;
 }

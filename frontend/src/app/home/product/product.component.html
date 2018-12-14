@@ -1,20 +1,29 @@
-<section class="relative">
-    
-      <img [src]="product.image" height="200">
+<section id="mainp">
+    <img [src]="product.image" id="img-h">
+     
+    <div class="infop">
+      <h3>{{product.name}}</h3>
+      <h6 class="mb4 gray">{{product.quant}}</h6>
+      <h6 class="gray" *ngIf="product.promo">
+        de <s>R$ {{product.oldPrice}}</s>
+        <span class="red"> ({{product.promo}}% de desconto)</span>
+      </h6>
+      <h2 class="mb2 dark-blue">
+        <span class="f6 gray" *ngIf="product.promo">por: </span>
+        R$ {{product.newPrice}}
+      </h2>
       
-      <div class="w-100">
-      
-        <label class="f4 db">{{product.name}}</label>
-        <label class="mb4 f6 gray db">{{product.quant}}</label>
-        <label class="f6 gray db ml--2" *ngIf="product.promo">de <s>R$ {{product.oldPrice}}</s></label>
-        <label class="mb2 f2 dark-blue db" ngClass="ml--2:product.promo">
-          <span class="f6 gray" *ngIf="product.promo">por: </span>R$ {{product.newPrice}}
-        </label>
-        
-        <button class="bg-blue dim link w3 pv3 br4 br--bottom bn white visi">
-          RESERVAR
-        </button>
-    
-      </div>
+      <button class="bg-blue dim link w4 pt2 pb1 br2 bn white f6 mr2">
+        RESERVAR
+      </button>
+      <input class="w3" type="number" min="1" value="1">  
+    </div>
+
+    <div class="infop">
+      <h3 class="o-50">Descrição</h3>
+      <p>
+        Blalalalalalallalalalaa
+      </p>
+    </div>
 
 </section>

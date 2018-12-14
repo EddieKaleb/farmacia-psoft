@@ -16,7 +16,7 @@ import { ProductListItemComponent } from './admin/admin-products/product-list-it
 import { HomeComponent } from './home/home.component';
 import { AdminHeaderComponent } from './admin/admin-header/admin-header.component';
 import { RegisterComponent } from './home/register/register.component';
-
+import { ProductComponent } from './home/product/product.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,8 @@ import { RegisterComponent } from './home/register/register.component';
     ProductListItemComponent,
     HomeComponent,
     AdminHeaderComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,

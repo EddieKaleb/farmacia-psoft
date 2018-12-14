@@ -7,7 +7,7 @@ import Product from '../../model/product.module';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  product = new Product("Escova de dentes", "5,00","5,00","assets/img/escova.png","2 unidades", 0);
+  product = new Product("Pasta de dentes", "3,00","2,50", "assets/img/pasta.png","30ml", 30);
   
   constructor() { }
 
