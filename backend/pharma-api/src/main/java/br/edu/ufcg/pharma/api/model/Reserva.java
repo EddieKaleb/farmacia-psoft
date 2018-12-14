@@ -33,6 +33,11 @@ public class Reserva {
 	@OneToOne
 	@JoinColumn(name = "VENDA_ID")
 	private Venda venda;
+	
+	@NotNull
+	@OneToOne
+	@JoinColumn(name = "USUARIO_ID")
+	private Usuario usuario;
 
 	public Integer getId() {
 		return id;
@@ -64,6 +69,14 @@ public class Reserva {
 
 	public void setVenda(Venda venda) {
 		this.venda = venda;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	@Override

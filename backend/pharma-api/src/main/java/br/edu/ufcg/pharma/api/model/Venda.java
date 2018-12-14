@@ -36,7 +36,7 @@ public class Venda {
 	@NotNull
 	@ManyToOne
     @JoinColumn(name = "USUARIO_ID")
-	private Usuario cliente;
+	private Usuario usuario;
 	
 	@NotNull
 	@ManyToOne
@@ -76,11 +76,11 @@ public class Venda {
 	}
 
 	public Usuario getUsuario() {
-		return cliente;
+		return usuario;
 	}
 
 	public void setUsuario(Usuario usuario) {
-		this.cliente = usuario;
+		this.usuario = usuario;
 	}
 
 	public VendaStatus getStatus() {
