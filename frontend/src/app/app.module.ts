@@ -3,16 +3,19 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ListProductsComponent } from './list-products/list-products.component';
-import { ProductCardComponent } from './list-products/product-card/product-card.component';
-import { MenuComponent } from './menu/menu.component';
-import { HeaderComponent } from './header/header.component';
-import { LoginComponent } from './login/login.component';
+import { ListProductsComponent } from './home/list-products/list-products.component';
+import { ProductCardComponent } from './home/list-products/product-card/product-card.component';
+import { MenuComponent } from './home/header/menu/menu.component';
+import { HeaderComponent } from './home/header/header.component';
+import { LoginComponent } from './home/login/login.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { AdminComponent } from './admin/admin.component';
-import { AdminMenuComponent } from './admin/admin-menu/admin-menu.component';
+import { AdminMenuComponent } from './admin/admin-header/admin-menu/admin-menu.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { ProductListItemComponent } from './admin/admin-products/product-list-item/product-list-item.component';
+import { HomeComponent } from './home/home.component';
+import { AdminHeaderComponent } from './admin/admin-header/admin-header.component';
+import { RegisterComponent } from './home/register/register.component';
 
 
 @NgModule({
@@ -26,7 +29,10 @@ import { ProductListItemComponent } from './admin/admin-products/product-list-it
     AdminComponent,
     AdminMenuComponent,
     AdminProductsComponent,
-    ProductListItemComponent
+    ProductListItemComponent,
+    HomeComponent,
+    AdminHeaderComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +41,6 @@ import { ProductListItemComponent } from './admin/admin-products/product-list-it
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [LoginComponent],
+  entryComponents: [LoginComponent,RegisterComponent],
 })
 export class AppModule { }

@@ -17,6 +17,8 @@ main {
     display: flex;
     column-gap: 3px;
     align-self: center;
+    font-size: 1.25rem; 
+    opacity: .5;
 }
 
 #sessao > p:hover {
