@@ -62,6 +62,6 @@ public class VendaRecurso {
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@PreAuthorize("hasAuthority('ADMIN')")
 	public void remover(@PathVariable Integer id) {
-		this.vendaServico.deletar(id);
+		this.vendaRepositorio.delete(id);
 	}
 }
