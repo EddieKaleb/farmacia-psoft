@@ -10,6 +10,7 @@ import br.edu.ufcg.pharma.api.model.LoteSituacao;
 import br.edu.ufcg.pharma.api.repositorio.LoteRepositorio;
 import br.edu.ufcg.pharma.api.repositorio.LoteSituacaoRepositorio;
 import br.edu.ufcg.pharma.api.repositorio.ProdutoSituacaoRepositorio;
+import br.edu.ufcg.pharma.api.servico.exception.LoteQuantidadeValorInvalidoException;
 
 @Service
 public class LoteServico {
@@ -24,13 +25,20 @@ public class LoteServico {
 	private EstoqueServico estoqueServico;
 	
 	public Lote salvar(Lote lote) {
+		LoteSituacao situacao = this.loteSituacaoRepositorio.findOne(1);
+		lote.setSituacao(situacao);
+		
+		if (lote.getQuantidade() <= 0) {
+			throw new LoteQuantidadeValorInvalidoException();
+		}
+		
 		this.estoqueServico.salvar(lote);
 		return this.loteRepositorio.save(lote);
 	}
 	
 	public Lote atualizar(Integer id, Lote lote) {
 		Lote loteSalvo = buscarLotePorId(id);
-
+		lote.setSituacao(loteSalvo.getSituacao());
 		BeanUtils.copyProperties(lote, loteSalvo, "id");
 		this.estoqueServico.atualizar(loteSalvo);
 		return this.loteRepositorio.save(loteSalvo);

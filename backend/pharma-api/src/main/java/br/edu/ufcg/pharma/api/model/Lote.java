@@ -30,7 +30,6 @@ public class Lote {
 	private String gtin;
 	
 	@NotNull
-	@Min(value = 1)
 	@Column(name = "QUANTIDADE")
 	private Integer quantidade;
 	
@@ -38,7 +37,6 @@ public class Lote {
 	@Column(name = "VALIDADE")
 	private Date validade;
 	
-	@NotNull
 	@OneToOne
 	@JoinColumn(name = "LOTE_SITUACAO_ID")
 	private LoteSituacao situacao;

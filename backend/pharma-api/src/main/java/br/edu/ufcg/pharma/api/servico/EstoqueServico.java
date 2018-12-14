@@ -40,8 +40,10 @@ public class EstoqueServico {
 			estoque.setQuantidade(lote.getQuantidade());
 			estoque.setReceita(0.0);
 			estoque.setSituacao("Disponível");
+			this.estoqueRepositorio.save(estoque);
 		} else {
 			estoqueSalvo.setQuantidade(estoqueSalvo.getQuantidade() + lote.getQuantidade());
+			this.estoqueRepositorio.save(estoqueSalvo);
 		}
 	}
 	

@@ -39,7 +39,6 @@ public class Produto {
 	@JoinColumn(name = "CATEGORIA_ID")
 	private Categoria categoria;
 	
-	@NotNull
 	@ManyToOne
 	@JoinColumn(name = "PRODUTO_SITUACAO_ID")
 	private ProdutoSituacao situacao;
