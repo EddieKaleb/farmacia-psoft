@@ -22,12 +22,16 @@ import org.springframework.web.bind.annotation.RestController;
 import br.edu.ufcg.pharma.api.evento.RecursoCriadoEvento;
 import br.edu.ufcg.pharma.api.model.Reserva;
 import br.edu.ufcg.pharma.api.repositorio.ReservaRepositorio;
+import br.edu.ufcg.pharma.api.servico.ReservaServico;
 
 @RestController
 @RequestMapping("/reservas")
 public class ReservaRecurso {
 	@Autowired
 	private ReservaRepositorio reservaRepositorio;
+	
+	@Autowired
+	private ReservaServico reservaServico;
 	
 	@Autowired
 	private ApplicationEventPublisher publisher;
@@ -40,7 +44,7 @@ public class ReservaRecurso {
 	
 	@PostMapping
 	public ResponseEntity<Reserva> criar(@RequestBody @Valid Reserva reserva, HttpServletResponse resposta) {
-		Reserva reservaSalva = this.reservaRepositorio.save(reserva);
+		Reserva reservaSalva = this.reservaServico.salvar(reserva);
 		publisher.publishEvent(new RecursoCriadoEvento(this, resposta, reservaSalva.getId()));
 		return ResponseEntity.status(HttpStatus.CREATED).body(reservaSalva);
 	}
