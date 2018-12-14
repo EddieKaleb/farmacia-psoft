@@ -1,0 +1,18 @@
+<main>
+  <img id="categoria" [src]="product.image" height="200">
+
+  <div class="info">
+    <label id="nome">{{product.name}}</label>
+  </div>
+
+  <div class="info">
+    <span>Qtd:</span>
+    <span id="quantidade">{{product.quant}}</span>
+  </div>
+
+  <div class="info">
+    <div>Valor:</div>
+    <label>R$ {{valorTotal()}}</label>
+  </div> 
+  <img id="cancel" src="assets/img/cancel.png">
+</main>

@@ -1,0 +1,33 @@
+main {
+    margin-top: 5px;
+    display: grid;
+    grid-template-columns: 200px repeat(3, 1fr) 110px;
+    border-bottom: 1px solid gainsboro;
+}
+
+#cancel:active {transform: scale(1.03);}
+#categoria{
+    max-height: 110px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+}
+.info {
+    align-self: center;
+}
+
+#cancel {
+    max-height: 35px;
+    align-self: center;
+    opacity: 0.4;
+    box-shadow: inset
+}
+
+#cancel:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+#nome {
+    font-size: 15px;
+}

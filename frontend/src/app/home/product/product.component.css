@@ -7,16 +7,15 @@
 .pt4 { padding-top: 17px}
 
 #mainp{
+    font-family: sans-serif;
     width: 100vw; 
     box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.192);
     margin-top: 3rem;
-    display: grid;
-    column-gap: 10px;
-    grid-template-columns: 2fr 2fr 2fr;
+    display: flex;
 }
 
 #img-h{
-    height: 22rem;
+    height: 420px;
 }
 
 .infop{

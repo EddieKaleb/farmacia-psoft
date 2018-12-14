@@ -17,6 +17,8 @@ import { HomeComponent } from './home/home.component';
 import { AdminHeaderComponent } from './admin/admin-header/admin-header.component';
 import { RegisterComponent } from './home/register/register.component';
 import { ProductComponent } from './home/product/product.component';
+import { ShoppingCartComponent } from './home/shopping-cart/shopping-cart.component';
+import { ItemCartComponent } from './home/shopping-cart/item-cart/item-cart.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { ProductComponent } from './home/product/product.component';
     HomeComponent,
     AdminHeaderComponent,
     RegisterComponent,
-    ProductComponent
+    ProductComponent,
+    ShoppingCartComponent,
+    ItemCartComponent
   ],
   imports: [
     BrowserModule,
