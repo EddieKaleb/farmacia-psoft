@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -36,7 +37,6 @@ public class Lote {
 	@Column(name = "VALIDADE")
 	private Date validade;
 	
-	@NotNull
 	@OneToOne
 	@JoinColumn(name = "LOTE_SITUACAO_ID")
 	private LoteSituacao situacao;

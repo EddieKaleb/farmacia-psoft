@@ -6,4 +6,6 @@ import br.edu.ufcg.pharma.api.model.Estoque;
 
 public interface EstoqueRepositorio extends JpaRepository<Estoque, Integer> {
 
+	public Estoque findByProdutoId(Integer id);
+	
 }

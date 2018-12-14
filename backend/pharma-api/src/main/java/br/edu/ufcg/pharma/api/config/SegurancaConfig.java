@@ -38,9 +38,10 @@ public class SegurancaConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-				.antMatchers("/produtos").permitAll()
-				.antMatchers("/usuarios").permitAll()
-				.anyRequest().authenticated()
+				//.antMatchers("/produtos").permitAll()
+				//.antMatchers("/usuarios").permitAll()
+				//.anyRequest().authenticated()
+				.anyRequest().permitAll()
 				.and()
 			.httpBasic().and()
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
