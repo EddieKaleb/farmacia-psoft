@@ -10,7 +10,7 @@ import { RegisterComponent } from '../register/register.component';
 })
 export class HeaderComponent implements OnInit {
 
-  statusLogin = false;
+  statusLogin = true;
 
 
   constructor(private modalService: BsModalService) { }

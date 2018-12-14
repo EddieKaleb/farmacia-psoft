@@ -1,0 +1,10 @@
+main {
+    display: grid;
+    grid-template-columns: 25% 1fr 25%;
+    grid-auto-rows: 202px;
+
+}
+
+app-item-cart{
+    grid-column: 2;
+}
