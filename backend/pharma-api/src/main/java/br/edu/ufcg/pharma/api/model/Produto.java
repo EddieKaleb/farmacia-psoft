@@ -30,6 +30,9 @@ public class Produto {
 	@Column(name = "NOME_FABRICANTE")
 	private String nomeFabricante;
 	
+	@Column(name = "CAMINHO_IMAGEM")
+	private String caminhoImagem;
+	
 	@NotNull
 	@Column(name = "PRECO")
 	private Double preco;
@@ -89,6 +92,14 @@ public class Produto {
 
 	public void setSituacao(ProdutoSituacao situacao) {
 		this.situacao = situacao;
+	}
+	
+	public String getCaminhoImagem() {
+		return caminhoImagem;
+	}
+
+	public void setCaminhoImagem(String caminhoImagem) {
+		this.caminhoImagem = caminhoImagem;
 	}
 
 	@Override

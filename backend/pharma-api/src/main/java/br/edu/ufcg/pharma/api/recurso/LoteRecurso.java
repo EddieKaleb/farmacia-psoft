@@ -50,13 +50,11 @@ public class LoteRecurso {
 	private MessageSource messageSource;
 	
 	@GetMapping
-	@PreAuthorize("hasAuthority('ADMIN')")
 	public List<Lote> listar() {
 		return this.loteRepositorio.findAll();
 	}
 	
 	@PostMapping
-	@PreAuthorize("hasAuthority('ADMIN')")
 	public ResponseEntity<Lote> criar(@RequestBody @Valid Lote lote, HttpServletResponse resposta) {
 		Lote loteSalvo = this.loteServico.salvar(lote);
 		publisher.publishEvent(new RecursoCriadoEvento(this, resposta, loteSalvo.getId()));
@@ -71,13 +69,11 @@ public class LoteRecurso {
 	
 	@DeleteMapping("/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	@PreAuthorize("hasAuthority('ADMIN')")
 	public void remover(@PathVariable Integer id) {
 		this.loteServico.remover(id);
 	}
 	
 	@PutMapping("/{id}")
-	@PreAuthorize("hasAuthority('ADMIN')")
 	public ResponseEntity<Lote> atualizar(@PathVariable Integer id, @RequestBody @Valid Lote lote) {
 		Lote loteSalvo = this.loteServico.atualizar(id, lote);
 		return ResponseEntity.ok(loteSalvo);

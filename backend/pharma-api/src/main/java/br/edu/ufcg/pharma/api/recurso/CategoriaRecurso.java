@@ -44,7 +44,6 @@ public class CategoriaRecurso {
 	}
 	
 	@PostMapping
-	@PreAuthorize("hasAuthority('ADMIN')")
 	public ResponseEntity<Categoria> criar(@RequestBody @Valid Categoria categoria, HttpServletResponse resposta) {
 		Categoria categoriaSalva = this.categoriaRepositorio.save(categoria);
 		publisher.publishEvent(new RecursoCriadoEvento(this, resposta, categoriaSalva.getId()));
@@ -52,7 +51,6 @@ public class CategoriaRecurso {
 	}
 
 	@GetMapping("/{id}")
-	@PreAuthorize("hasAuthority('ADMIN')")
 	public ResponseEntity<Categoria> buscarPorId(@PathVariable Integer id) {
 		Categoria categoria = this.categoriaRepositorio.findOne(id);
 		return categoria != null ? ResponseEntity.ok(categoria) : ResponseEntity.notFound().build();
@@ -60,13 +58,11 @@ public class CategoriaRecurso {
 
 	@DeleteMapping("/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	@PreAuthorize("hasAuthority('ADMIN')")
 	public void remover(@PathVariable Integer id) {
 		this.categoriaRepositorio.delete(id);
 	}
 
 	@PutMapping("/{id}")
-	@PreAuthorize("hasAuthority('ADMIN')")
 	public ResponseEntity<Categoria> atualizar(@PathVariable Integer id, @RequestBody @Valid Categoria categoria) {
 		Categoria categoriaSalva = this.categoriaServico.atualizar(id, categoria);
 		return ResponseEntity.ok(categoriaSalva);

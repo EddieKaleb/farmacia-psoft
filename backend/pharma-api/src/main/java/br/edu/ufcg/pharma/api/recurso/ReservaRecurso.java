@@ -37,7 +37,6 @@ public class ReservaRecurso {
 	private ApplicationEventPublisher publisher;
 	
 	@GetMapping
-	@PreAuthorize("hasAuthority('ADMIN')")
 	public List<Reserva> listar() {
 		return this.reservaRepositorio.findAll();
 	}
@@ -50,7 +49,6 @@ public class ReservaRecurso {
 	}
 	
 	@GetMapping("/{id}")
-	@PreAuthorize("hasAuthority('ADMIN')")
 	public ResponseEntity<Reserva> buscarPorId(@PathVariable Integer id) {
 		Reserva reserva = this.reservaRepositorio.findOne(id);
 		return reserva != null ? ResponseEntity.ok(reserva) : ResponseEntity.notFound().build();

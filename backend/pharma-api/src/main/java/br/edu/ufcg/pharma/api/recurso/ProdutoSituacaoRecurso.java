@@ -19,7 +19,6 @@ public class ProdutoSituacaoRecurso {
 	private ProdutoSituacaoRepositorio produtoSituacaoRepositorio;
 	
 	@GetMapping
-	@PreAuthorize("hasAuthority('ADMIN')")
 	public List<ProdutoSituacao> listar() {
 		return this.produtoSituacaoRepositorio.findAll();
 	}

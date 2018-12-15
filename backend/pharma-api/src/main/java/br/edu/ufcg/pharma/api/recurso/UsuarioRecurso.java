@@ -61,7 +61,6 @@ public class UsuarioRecurso {
 	}
 	
 	@GetMapping("/{id}")
-	@PreAuthorize("hasAuthority('ADMIN')")
 	public ResponseEntity<Usuario> buscarPorId(@PathVariable Integer id) {
 		Usuario usuario = this.usuarioRepositorio.findOne(id);
 		return usuario != null ? ResponseEntity.ok(usuario) : ResponseEntity.notFound().build();

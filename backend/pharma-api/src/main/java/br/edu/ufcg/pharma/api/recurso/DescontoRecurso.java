@@ -19,7 +19,6 @@ public class DescontoRecurso {
 	private DescontoRepositorio descontoRepositorio;
 	
 	@GetMapping
-	@PreAuthorize("hasAuthority('ADMIN')")
 	public List<Desconto> listar() {
 		return this.descontoRepositorio.findAll();
 	}

@@ -49,7 +49,6 @@ public class ProdutoRecurso {
 	}
 	
 	@PostMapping
-	@PreAuthorize("hasAuthority('ADMIN')")
 	public ResponseEntity<Produto> criar(@RequestBody @Valid Produto produto, HttpServletResponse resposta) {
 		Produto produtoSalvo = this.produtoRepositorio.save(produto);
 		publisher.publishEvent(new RecursoCriadoEvento(this, resposta, produtoSalvo.getId()));
@@ -64,13 +63,11 @@ public class ProdutoRecurso {
 	
 	@DeleteMapping("/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	@PreAuthorize("hasAuthority('ADMIN')")
 	public void remover(@PathVariable Integer id) {
 		this.produtoRepositorio.delete(id);
 	}
 	
 	@PutMapping("/{id}")
-	@PreAuthorize("hasAuthority('ADMIN')")
 	public ResponseEntity<Produto> atualizar(@PathVariable Integer id, @RequestBody @Valid Produto produto) {
 		Produto produtoSalvo = this.produtoServico.atualizar(id, produto);
 		return ResponseEntity.ok(produtoSalvo);

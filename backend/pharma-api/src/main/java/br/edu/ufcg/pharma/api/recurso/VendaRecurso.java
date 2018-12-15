@@ -50,13 +50,11 @@ public class VendaRecurso {
 	private ApplicationEventPublisher publisher;
 	
 	@GetMapping
-	@PreAuthorize("hasAuthority('ADMIN')")
 	public List<Venda> listar() {
 		return this.vendaRepositorio.findAll();
 	}
 	
 	@PostMapping("/iniciar")
-	@PreAuthorize("hasAuthority('ADMIN')")
 	public ResponseEntity<Venda> iniciarVenda(@RequestBody @Valid Venda venda, HttpServletResponse resposta) {
 		Venda vendaSalva = this.vendaServico.iniciar(venda);
 		publisher.publishEvent(new RecursoCriadoEvento(this, resposta, vendaSalva.getId()));
@@ -64,7 +62,6 @@ public class VendaRecurso {
 	}
 	
 	@PostMapping("/finalizar/{id}")
-	@PreAuthorize("hasAuthority('ADMIN')")
 	public ResponseEntity<Venda> finalizarVenda(@PathVariable Integer id, HttpServletResponse resposta) {
 		Venda vendaSalva = this.vendaServico.finalizar(id);
 		publisher.publishEvent(new RecursoCriadoEvento(this, resposta, vendaSalva.getId()));
@@ -79,7 +76,6 @@ public class VendaRecurso {
 	}
 	
 	@GetMapping("/{id}")
-	@PreAuthorize("hasAuthority('ADMIN')")
 	public ResponseEntity<Venda> buscarPorId(@PathVariable Integer id) {
 		Venda venda = this.vendaRepositorio.findOne(id);
 		return venda != null ? ResponseEntity.ok(venda) : ResponseEntity.notFound().build();
@@ -87,7 +83,6 @@ public class VendaRecurso {
 	
 	@DeleteMapping("/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	@PreAuthorize("hasAuthority('ADMIN')")
 	public void remover(@PathVariable Integer id) {
 		this.vendaRepositorio.delete(id);
 	}
