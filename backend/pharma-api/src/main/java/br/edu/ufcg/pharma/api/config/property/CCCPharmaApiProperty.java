@@ -11,4 +11,8 @@ public class CCCPharmaApiProperty {
 		return origemPermitida;
 	}
 
+	public void setOrigemPermitida(String origemPermitida) {
+		this.origemPermitida = origemPermitida;
+	}
+
 }
