@@ -14,4 +14,11 @@ export class ProductCardComponent implements OnInit {
   ngOnInit() {
   }
 
+  getNewPrice(){
+    return this.product.newPrice.toFixed(2);
+  }
+
+  getOldPrice(){
+    return this.product.oldPrice.toFixed(2);
+  }
 }

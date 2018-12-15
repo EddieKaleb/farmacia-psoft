@@ -6,17 +6,15 @@ import Product from '../model/product.module';
 })
 export class ShoppingCartService {
 
-  listCart: Array<Product> = [new Product("Pasta de dentes", "3,00", 2.50, "assets/img/medicamento.png", 2, 30), new Product("Pasta de dentes", "3,00", 2.5 , "assets/img/cosmetico.png",2, 30)];
+  listCart: Array<any> = [];
 
   constructor() { }
 
-  addCart(product: Product){
-    console.log(product);
-    
+  addCart(product){
     this.listCart.push(product);
   }
 
-  getProducts(): Array<Product>{
+  getProducts(): Array<any>{
     return this.listCart;
   }
 }
