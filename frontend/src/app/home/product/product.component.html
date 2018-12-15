@@ -1,8 +1,7 @@
 <section id="mainp">
     <img [src]="product.image" id="img-h">
-     
     <div class="infop">
-      <h1>{{product.name}}</h1>
+      <h2>{{product.name}}</h2>
       <h6 class="mb4 gray">{{product.quant}}</h6>
       <h6 class="gray" *ngIf="product.promo">
         de <s>R$ {{product.oldPrice}}</s>
@@ -10,9 +9,9 @@
       </h6>
       <h2 class="mb2 dark-blue">
         <span class="f6 gray" *ngIf="product.promo">por: </span>
-        R$ {{product.newPrice}}
+        R$ {{getNewPrice()}}
       </h2>
-      
+
       <button [disabled]="!validQuant()" class="bg-blue dim link w4 pt2 pb1 br2 bn white f6 mr2" (click)="addCart()">
         RESERVAR
       </button>

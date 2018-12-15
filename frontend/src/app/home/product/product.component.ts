@@ -9,7 +9,7 @@ import { logWarnings } from 'protractor/built/driverProviders';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  product = new Product("Pasta de dentes", "3,00",2.50, "assets/img/pasta.png","30ml", 30);
+  product = new Product("Escova de dentes", 5.50,5.50,"assets/img/alimento.png","2 unidades", 0);
   quant = 1;
 
   constructor(private cartService: ShoppingCartService) { }
@@ -27,5 +27,9 @@ export class ProductComponent implements OnInit {
 
   validQuant(){
     return this.quant >= 1;
+  }
+
+  getNewPrice(){
+    return this.product.newPrice.toFixed(2);  
   }
 }

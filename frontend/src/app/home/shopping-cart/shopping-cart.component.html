@@ -1,4 +1,15 @@
 <main>
-<app-item-cart *ngFor="let product of products" [product] = product>
-</app-item-cart>
-</main>
+    <header *ngIf="products.length">
+        <h4 id="nome">Nome</h4>
+        <h4 id="qtd"> qtd Preço</h4>
+    </header>
+    <app-item-cart *ngFor="let product of products" [product] = product></app-item-cart>
+    <footer *ngIf="products.length">
+        <h1>Total: </h1>
+        <button>RESERVAR</button>
+    </footer>
+</main> 
+<div id="warning" *ngIf="!products.length">
+        <img src="assets/img/no-shopping-cart.png">
+        <h4>Sem intens no carrinho!</h4>
+</div>
