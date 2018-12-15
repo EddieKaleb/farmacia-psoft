@@ -29,4 +29,8 @@ export class ItemCartComponent implements OnInit {
     this.valorTotal = (this.product.quant * this.product.item.newPrice).toFixed(2);
   }
 
+  deleteItem(){
+    
+  }
+
 }
