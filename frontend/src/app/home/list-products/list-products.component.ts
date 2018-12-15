@@ -16,10 +16,10 @@ export class ListProductsComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+    /*
     this.route.params.subscribe(
       (params) => this.products = this.productsService.getProductsCategory(params['category']));
-    
+    */
   }
 
 }
