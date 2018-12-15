@@ -1,6 +1,6 @@
 <main>
   <div id="botoes">
-    <div id="addProduto">Adicionar Produto</div>
+    <div id="addProduto" (click)="openAddProduct()">Adicionar Produto</div>
     <div id="addDesconto">Adicionar Desconto</div>
   </div>
   <app-product-list-item *ngFor="let product of products" [product] = product></app-product-list-item>
