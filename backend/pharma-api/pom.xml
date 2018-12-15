@@ -17,6 +17,7 @@
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.5.15.RELEASE</version>
 		<relativePath />
+		<!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
@@ -52,7 +53,7 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-
+		
 		<!-- Migrations - Flyway -->
 		<dependency>
 			<groupId>org.flywaydb</groupId>
@@ -86,11 +87,9 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
 		</dependency>
-	
 	</dependencies>
-	
-	
 
 	<build>
 		<plugins>
