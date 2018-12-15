@@ -22,6 +22,7 @@ import { ItemCartComponent } from './home/shopping-cart/item-cart/item-cart.comp
 import { AdminLotsComponent } from './admin/admin-lots/admin-lots.component';
 import { LotListItemComponent } from './admin/admin-lots/lot-list-item/lot-list-item.component';
 import { AdminAddProductComponent } from './admin/admin-products/admin-add-product/admin-add-product.component';
+import { AdminDescontosComponent } from './admin/admin-products/admin-descontos/admin-descontos.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { AdminAddProductComponent } from './admin/admin-products/admin-add-produ
     ItemCartComponent,
     AdminLotsComponent,
     LotListItemComponent,
-    AdminAddProductComponent
+    AdminAddProductComponent,
+    AdminDescontosComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +54,6 @@ import { AdminAddProductComponent } from './admin/admin-products/admin-add-produ
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [LoginComponent,RegisterComponent, AdminAddProductComponent],
+  entryComponents: [LoginComponent,RegisterComponent, AdminAddProductComponent, AdminDescontosComponent],
 })
 export class AppModule { }

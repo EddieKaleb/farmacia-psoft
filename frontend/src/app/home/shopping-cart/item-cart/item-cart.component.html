@@ -5,14 +5,9 @@
     <label id="nome">{{product.item.name}}</label>
   </div>
 
-  <div class="info">
-    <span>Qtd:</span>
-    <input class="w3" type="number" min="1" [(value)]="product.quant" #num
-    (input)="getVal(num)">  
-  </div>
-
-  <div class="info">
-    <div>Valor:</div>
+  <div class="info info2">
+    <input class="w2" type="number" min="1" [(value)]="product.quant" #num
+      (input)="getVal(num)">  
     <label id="val">R$ {{valorTotal}}</label>
   </div> 
   <img id="cancel" src="assets/img/cancel.png">

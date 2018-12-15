@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from 'src/app/service/products.service';
 import { BsModalService } from 'ngx-bootstrap/modal/';
 import { AdminAddProductComponent } from './admin-add-product/admin-add-product.component';
+import { AdminDescontosComponent } from './admin-descontos/admin-descontos.component';
 
 @Component({
   selector: 'app-admin-products',
@@ -21,5 +22,9 @@ export class AdminProductsComponent implements OnInit {
 
   openAddProduct(){
     this.modalService.show(AdminAddProductComponent);
+  }
+
+  openDescontos(){
+    this.modalService.show(AdminDescontosComponent);
   }
 }

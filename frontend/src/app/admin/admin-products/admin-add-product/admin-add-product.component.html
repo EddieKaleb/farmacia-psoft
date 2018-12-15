@@ -1,21 +1,44 @@
 <main>
-  <div>
+  <h3>
     Adicionar Produto
+  </h3>
+  <div>
+    <label>
+      Nome
+    </label>
+    <input type="text" name="nome">
   </div>
-  <label>
-    Nome
-  </label>
-    <input type="text">
-  <label>
-    Quantidade
-  </label>
-  <input type="number">
-  <label>
-    Valor
-  </label>
-  <input type="text">
+
+  <div>
+    <label>
+      Quantidade
+    </label>
+    <input type="number" name="quantidade">
+  </div>
+
+  <div>
+    <label>
+      Valor
+    </label>
+    <input type="text" name="valor">
+  </div>
+  
+  <div>
   <label>
     Fabricante
   </label>
-  <input type="text">
+  <input type="text" name="fabricante">
+  </div>
+  
+  <div>
+  <label>
+    Categoria
+  </label>
+  <select>
+    <option value="medicamento">Medicamento</option>
+    <option value="higiene">Higiene Pessoal</option>
+    <option value="alimento">Alimento</option>
+    <option value="cosmetico">Cosmetico</option>
+  </select>
+  </div>
 </main>
