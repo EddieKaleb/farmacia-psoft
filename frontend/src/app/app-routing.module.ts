@@ -6,6 +6,7 @@ import { AdminProductsComponent } from './admin/admin-products/admin-products.co
 import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './home/product/product.component';
 import { ShoppingCartComponent } from './home/shopping-cart/shopping-cart.component';
+import { AdminLotsComponent } from './admin/admin-lots/admin-lots.component';
 
 const routes: Routes = [
   {path:'', component: HomeComponent,
@@ -18,7 +19,7 @@ const routes: Routes = [
   {path: 'admin', component: AdminComponent,
    children: [
     {path:'products', component: AdminProductsComponent},
-    {path:'lotes', component: AdminProductsComponent},
+    {path:'lotes', component: AdminLotsComponent},
     {path:'vendas', component: AdminProductsComponent}
    ]}
 ];

@@ -11,9 +11,10 @@ main{
 }
 
 img {
-    height: 150px;
+    height: 100px;
+    width: 100px;
     grid-row: 1 / 4;
     grid-column: 1;
-    border-radius: 20px;
-
+    align-self: center;
+    margin-left: 15px;
 }

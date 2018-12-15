@@ -1,24 +1,24 @@
 
-<a class="br4 mt5 mr3 ml3 shadow-1 grow tc w6 h6 relative pt3 dib item" [routerLink]="['/product']">
+<a class="grow" [routerLink]="['/product']">
 
   <div class="absolute top-0 right-1 imgb w3 h3 pt4" *ngIf="product.promo">
     <label class="fw9 f7 white">-{{product.promo}}%</label>
   </div>
 
-  <img [src]="product.image" height="200">
+  <img [src]="product.image" height="180">
   
   <div class="absolute bottom-0 left-0 w-100">
   
-    <label class="f4 db">{{product.name}}</label>
-    <label class="mb4 f6 gray db">{{product.quant}}</label>
-    <label class="f6 gray db ml--2" *ngIf="product.promo">de <s>R$ {{product.oldPrice}}</s></label>
-    <label class="mb2 f2 dark-blue db" ngClass="ml--2:product.promo">
-      <span class="f6 gray" *ngIf="product.promo">por: </span>R$ {{product.newPrice}}
-    </label>
+    <h4>{{product.name}}</h4>
+    <label class="f6 gray db">{{product.quant}}</label>
+    <label class="f6 gray db ml--2" *ngIf="product.promo">de <s>R$ {{getOldPrice()}}</s></label>
+    <h2 class="dark-blue" ngClass="ml--2:product.promo">
+      <span class="f6 gray" *ngIf="product.promo">por: </span>R$ {{getNewPrice()}}
+    </h2>
     
-    <button class="bg-blue dim link w-100 pv3 br4 br--bottom bn white visi">
+    <div class="bg-blue link w-100 pv2 br4 br--bottom bn white visi">
       RESERVAR
-    </button>
+    </div>
 
   </div>
 </a>

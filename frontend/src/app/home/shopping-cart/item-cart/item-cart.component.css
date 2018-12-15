@@ -29,5 +29,11 @@ main {
 }
 
 #nome {
-    font-size: 15px;
+    font-size: 18px;
+    color: blue;
+}
+
+#val{
+    color: blue;
+    font-size: 22px;
 }

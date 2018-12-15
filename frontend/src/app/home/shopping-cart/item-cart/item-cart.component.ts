@@ -7,16 +7,26 @@ import Product from '../../../model/product.module';
   styleUrls: ['./item-cart.component.css']
 })
 export class ItemCartComponent implements OnInit {
-  @Input() product: Product;
+  @Input() product: any;
+
+  valorTotal;
+
   constructor() { }
 
   ngOnInit() {
+    this.valorTotal = (this.product.quant * this.product.item.newPrice).toFixed(2);
   }
 
-  valorTotal(){
-    let returno = (this.product.quant * this.product.newPrice).toFixed(2);
-    console.log(returno);
-    return returno;
-  } 
+  getVal(value){
+    
+    if(value.value>1){
+      this.product.quant  = value.value;
+    }else if(value.value){
+      this.product.quant = 1;
+      value.value = 1;
+    }
+    
+    this.valorTotal = (this.product.quant * this.product.item.newPrice).toFixed(2);
+  }
 
 }
