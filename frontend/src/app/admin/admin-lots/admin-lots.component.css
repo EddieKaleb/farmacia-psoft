@@ -1,0 +1,11 @@
+main{
+    display: grid;
+    grid-template-columns: 25% 1fr 25%;
+    grid-auto-rows: 115px;
+    font-family: sans-serif;
+
+}
+
+app-lot-list-item{
+    grid-column: 2;
+}

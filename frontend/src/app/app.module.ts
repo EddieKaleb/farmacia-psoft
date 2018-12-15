@@ -19,6 +19,8 @@ import { RegisterComponent } from './home/register/register.component';
 import { ProductComponent } from './home/product/product.component';
 import { ShoppingCartComponent } from './home/shopping-cart/shopping-cart.component';
 import { ItemCartComponent } from './home/shopping-cart/item-cart/item-cart.component';
+import { AdminLotsComponent } from './admin/admin-lots/admin-lots.component';
+import { LotListItemComponent } from './admin/admin-lots/lot-list-item/lot-list-item.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { ItemCartComponent } from './home/shopping-cart/item-cart/item-cart.comp
     RegisterComponent,
     ProductComponent,
     ShoppingCartComponent,
-    ItemCartComponent
+    ItemCartComponent,
+    AdminLotsComponent,
+    LotListItemComponent
   ],
   imports: [
     BrowserModule,
