@@ -1,0 +1,42 @@
+main{
+    padding-top: 4px;
+    padding-bottom: 4px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 10%;
+    border-bottom: 1px solid gainsboro;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+main:hover{
+    background-color: gainsboro;
+    transform: scale(1.03);
+    border-radius:3px;
+}
+
+img{
+    height: 70px;
+    min-width: 70px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+section{
+    margin-top: 5px;
+}
+
+label{
+    font-size: 13px;
+    opacity: 0.7;
+}
+
+#cancel{
+    height: 40px;
+    min-width: 40px;
+    align-self: center;
+}
+
+#cancel:active{
+    transform: scale(1.06);
+}

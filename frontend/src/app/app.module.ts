@@ -23,6 +23,8 @@ import { AdminLotsComponent } from './admin/admin-lots/admin-lots.component';
 import { LotListItemComponent } from './admin/admin-lots/lot-list-item/lot-list-item.component';
 import { AdminAddProductComponent } from './admin/admin-products/admin-add-product/admin-add-product.component';
 import { AdminDescontosComponent } from './admin/admin-products/admin-descontos/admin-descontos.component';
+import { UsuarioComponent } from './home/usuario/usuario.component';
+import { ReservaComponent } from './home/usuario/reserva/reserva.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { AdminDescontosComponent } from './admin/admin-products/admin-descontos/
     AdminLotsComponent,
     LotListItemComponent,
     AdminAddProductComponent,
-    AdminDescontosComponent
+    AdminDescontosComponent,
+    UsuarioComponent,
+    ReservaComponent
   ],
   imports: [
     BrowserModule,

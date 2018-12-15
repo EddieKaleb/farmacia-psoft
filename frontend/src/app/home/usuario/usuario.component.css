@@ -1,0 +1,29 @@
+img{
+    height: 200px;
+    float: left;
+    margin-right: 20px;
+}
+main{
+    margin: 20px;
+    font-family: sans-serif;
+}
+
+label {
+    margin-top: 5px;
+    opacity: 0.6;
+}
+
+#info {
+    border-bottom: 1px solid gainsboro;
+    padding-bottom: 8px;
+}
+
+#reservas{
+    margin-top: 4px;
+    display: grid;
+    grid-template-columns: 15% 1fr 15%;
+}
+
+app-reserva{
+    grid-column: 2;
+}
