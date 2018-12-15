@@ -11,15 +11,19 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import br.edu.ufcg.pharma.api.config.property.CCCPharmaApiProperty;
+
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class CorsFiltro implements Filter {
-
-	private String origemPermitida = "localhost://localhost:8080";
+	
+	@Autowired
+	private CCCPharmaApiProperty cccPharmaApiProperty;
 	
 	@Override
 	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
@@ -28,10 +32,10 @@ public class CorsFiltro implements Filter {
 		HttpServletRequest request = (HttpServletRequest) req;
 		HttpServletResponse response = (HttpServletResponse) res;
 		
-		response.setHeader("Access-Control-Allow-Origin", origemPermitida);
+		response.setHeader("Access-Control-Allow-Origin", cccPharmaApiProperty.getOrigemPermitida());
 		response.setHeader("Access-Control-Allow-Credentials", "true");
 		
-		if (request.getMethod().equals("OPTIONS") && origemPermitida.equals(request.getHeader("Origin"))) {
+		if (request.getMethod().equals("OPTIONS") && cccPharmaApiProperty.getOrigemPermitida().equals(request.getHeader("Origin"))) {
 			response.setHeader("Access-Control-Allow-Methods", "POST, GET, DELETE, PUT, OPTIONS");
 			response.setHeader("Access-Control-Allow-Headers", "Authorization, Content-type, Accept");
 			response.setHeader("Access-Control-Max-Age", "3600");
