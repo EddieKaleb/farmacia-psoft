@@ -43,6 +43,11 @@ public class ProdutoRecurso {
 		return produtoRepositorio.findAll();
 	}
 	
+	@GetMapping("/categoria/{id}")
+	public List<Produto> listarPorCategoria(@PathVariable Integer id) {
+		return produtoRepositorio.findAllByCategoriaId(id);
+	}
+	
 	@PostMapping
 	@PreAuthorize("hasAuthority('ADMIN')")
 	public ResponseEntity<Produto> criar(@RequestBody @Valid Produto produto, HttpServletResponse resposta) {
