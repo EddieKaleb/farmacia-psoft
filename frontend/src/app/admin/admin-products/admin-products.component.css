@@ -15,7 +15,23 @@ app-product-list-item {
 }
 
 #botoes{
+    padding-left: 30px;
     display: flex;
+    column-gap: 30px;
 }
+
+img {
+    height: 50px;
+    align-self: center;
+    border: 2px solid gainsboro;
+    border-radius: 50px;
+    padding: 5px;
+}
+
+img:hover{
+    background-color: gainsboro;
+}
+
+img:active{transform: scale(1.03);}
 
 
