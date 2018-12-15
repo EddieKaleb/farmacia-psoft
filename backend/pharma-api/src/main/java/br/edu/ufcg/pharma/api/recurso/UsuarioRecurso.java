@@ -85,7 +85,6 @@ public class UsuarioRecurso {
 	
 	@ExceptionHandler({ UsuarioRgJaCadastradoException.class })
 	public ResponseEntity<Object> handleUsuarioRgJaCadastradoException(UsuarioRgJaCadastradoException ex, WebRequest request) {
-		System.out.println("ENTREI NA EXCEPTION");
 		String mensagemUsr = messageSource.getMessage("recurso.rg-nao-permitido", null, LocaleContextHolder.getLocale());
 		String mensagemDev =  ExceptionUtils.getRootCauseMessage(ex);
 		List<Erro> erros = Arrays.asList(new Erro(mensagemUsr,mensagemDev));

@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import br.edu.ufcg.pharma.api.model.Produto;
 import br.edu.ufcg.pharma.api.model.ProdutoSituacao;
+import br.edu.ufcg.pharma.api.repositorio.EstoqueRepositorio;
+import br.edu.ufcg.pharma.api.repositorio.LoteRepositorio;
 import br.edu.ufcg.pharma.api.repositorio.ProdutoRepositorio;
 import br.edu.ufcg.pharma.api.repositorio.ProdutoSituacaoRepositorio;
 
@@ -15,7 +17,7 @@ public class ProdutoServico {
 	
 	@Autowired
 	private ProdutoRepositorio produtoRepositorio;
-	
+
 	@Autowired
 	private ProdutoSituacaoRepositorio produtoSituacaoRepositorio;
 	

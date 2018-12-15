@@ -58,4 +58,11 @@ public class LoteServico {
 		lote.setSituacao(situacao);
 		this.loteRepositorio.save(lote);
 	}
+
+	public void remover(Integer id) {
+		Lote loteSalvo = buscarLotePorId(id);
+		loteSalvo.setQuantidade(0);
+		this.estoqueServico.atualizar(loteSalvo);
+		this.loteRepositorio.delete(id);
+	}
 }

@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -33,19 +34,17 @@ public class VendaProduto implements Serializable {
 	@JoinColumn(name = "PRODUTO_ID")
 	private Produto produto;
 	
-	@NotNull
 	@Column(name = "VALOR_UNITARIO")
 	private double valorUnitario;
 	
-	@NotNull
 	@Column(name = "VALOR_SUBTOTAL")
 	private double valorSubtotal;
 	
-	@NotNull
 	@Column(name = "VALOR_TOTAL")
 	private double valorTotal;
 	
 	@NotNull
+	@Min(value = 1)
 	@Column(name = "QUANTIDADE")
 	private Integer quantidade;
 

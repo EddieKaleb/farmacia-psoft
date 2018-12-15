@@ -73,7 +73,7 @@ public class LoteRecurso {
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@PreAuthorize("hasAuthority('ADMIN')")
 	public void remover(@PathVariable Integer id) {
-		this.loteRepositorio.delete(id);
+		this.loteServico.remover(id);
 	}
 	
 	@PutMapping("/{id}")

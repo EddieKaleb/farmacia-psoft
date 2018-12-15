@@ -21,15 +21,12 @@ public class Venda {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	
-	@NotNull
 	@Column(name = "VALOR_SUBTOTAL")
 	private Double valorSubtotal;
 	
-	@NotNull
 	@Column(name = "VALOR_TOTAL")
 	private Double valorTotal;
 	
-	@NotNull
 	@Column(name = "DATA")
 	private Date data;
 	
@@ -38,7 +35,6 @@ public class Venda {
     @JoinColumn(name = "USUARIO_ID")
 	private Usuario usuario;
 	
-	@NotNull
 	@ManyToOne
     @JoinColumn(name = "VENDA_STATUS_ID")
 	private VendaStatus status;

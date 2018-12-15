@@ -95,7 +95,7 @@ public class EstoqueServico {
 		return this.estoqueRepositorio.save(estoqueSalvo);
 	}
 	
-	private Estoque buscarEstoquePorProdutoId(Integer id) {
+	public Estoque buscarEstoquePorProdutoId(Integer id) {
 		Estoque estoqueSalvo = estoqueRepositorio.findByProdutoId(id);
 
 		if (estoqueSalvo == null) {
