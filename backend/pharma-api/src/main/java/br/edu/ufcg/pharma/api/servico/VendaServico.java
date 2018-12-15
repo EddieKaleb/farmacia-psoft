@@ -13,6 +13,7 @@ import br.edu.ufcg.pharma.api.model.Lote;
 import br.edu.ufcg.pharma.api.model.Venda;
 import br.edu.ufcg.pharma.api.model.VendaProduto;
 import br.edu.ufcg.pharma.api.model.VendaStatus;
+import br.edu.ufcg.pharma.api.repositorio.EstoqueRepositorio;
 import br.edu.ufcg.pharma.api.repositorio.LoteHistoricoRepositorio;
 import br.edu.ufcg.pharma.api.repositorio.LoteRepositorio;
 import br.edu.ufcg.pharma.api.repositorio.ProdutoRepositorio;
@@ -35,6 +36,9 @@ public class VendaServico {
 	
 	@Autowired
 	private LoteHistoricoRepositorio loteHistoricoRepositorio;
+	
+	@Autowired
+	private EstoqueRepositorio estoqueRepositorio;
 	
 	@Autowired
 	private LoteRepositorio loteRepositorio;
@@ -151,7 +155,12 @@ public class VendaServico {
 		double desconto = categoria.getDesconto().getPorcentagem();
 		produtoVenda.setValorUnitario(valorProd);
 		produtoVenda.setValorSubtotal(valorProd * quant);
-		produtoVenda.setValorTotal((valorProd * quant) * desconto);
+		double total = (valorProd * quant) * desconto;
+		produtoVenda.setValorTotal(total);
+		
+		estoque.setReceita(estoque.getReceita() + total);	
+		this.estoqueRepositorio.save(estoque);
+	
 		return this.vendaProdutoRepositorio.save(produtoVenda);
 	}
 	
