@@ -7,7 +7,7 @@
 
   <div class="info info2">
     <input class="w2" type="number" min="1" [(value)]="product.quant" #num
-      (input)="getVal(num)">  
+      (input)="getVal(num)" required>  
     <label id="val">R$ {{valorTotal}}</label>
   </div> 
   <img id="cancel" src="assets/img/cancel.png">

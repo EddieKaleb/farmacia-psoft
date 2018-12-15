@@ -10,10 +10,22 @@ export class ShoppingCartComponent implements OnInit {
 
   products= [];
 
+  valorTotal;
+
   constructor(private cartService: ShoppingCartService) { }
 
   ngOnInit() {
     this.products = this.cartService.getProducts();
+    this.getVal();
   }
+
+  getVal(){
+    let soma = 0;
+    this.products.forEach((item)=> 
+    soma += (item.quant * item.item.newPrice));
+    this.valorTotal = soma.toFixed(2);
+  }
+
+
 
 }
