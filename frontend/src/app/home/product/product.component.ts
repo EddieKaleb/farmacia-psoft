@@ -12,18 +12,16 @@ import { ProductsService } from 'src/app/service/products.service';
 })
 export class ProductComponent implements OnInit {
   product;
-  quant = 1;
+  quant: Number = 1;
 
   constructor(private cartService: ShoppingCartService,
               private route: ActivatedRoute,
               private productsService: ProductsService) { }
 
   ngOnInit() {
-
     this.route.params.subscribe(
-      (params) => { console.log(params['id']);
-      this.productsService.getProductById(params['id']).subscribe(r => this.product = r)});
-       
+      (params) => {this.productsService.getProductById(params['id'])
+                      .subscribe(r => this.product = r)});
   }
 
   addCart(){
@@ -31,7 +29,7 @@ export class ProductComponent implements OnInit {
   }
 
   getVal(value){
-    this.quant = value;
+    this.quant = Number(value);
   }
 
   validQuant(){
@@ -39,8 +37,18 @@ export class ProductComponent implements OnInit {
   }
 
   getNewPrice(){
+    return (this.product.preco*Number(this.product.categoria.desconto.porcentagem)).toFixed(2);
+  }
 
-    
-    return this.product.preco.toFixed(2);  
+  getOldPrice(){
+    return this.product.preco.toFixed(2);
+  }
+
+  isPromo(){
+    return this.product.categoria.desconto.id >1;
+  }
+
+  getPromo(){
+    return Number((1-Number(this.product.categoria.desconto.porcentagem)).toFixed(1))*100;
   }
 }

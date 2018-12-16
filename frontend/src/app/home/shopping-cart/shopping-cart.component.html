@@ -1,11 +1,15 @@
 
 <main>
-    <header *ngIf="products.length">
+    <header *ngIf="getList().length">
         <h4 id="nome">Nome</h4>
         <h4 id="qtd"> qtd Preço</h4>
     </header>
-    <app-item-cart *ngFor="let product of products" (change)="getVal()" [(product)] = product></app-item-cart>
-    <footer *ngIf="products.length">
+    <app-item-cart *ngFor="let product of getList()" 
+                    (change)="getVal()" 
+                    [(product)] = product
+                    (dele)="deleteById($event)">
+    </app-item-cart>
+    <footer *ngIf="getList().length">
         <div id="total">
                 <h1 id="totalT">Total: </h1>
                 <h1 id="valor">R$ {{valorTotal}}</h1>
@@ -14,7 +18,7 @@
         <button class="link grow pv2 br2">RESERVAR</button>
     </footer>
 </main> 
-<div id="warning" *ngIf="!products.length">
+<div id="warning" *ngIf="!getList().length">
         <img src="assets/img/no-shopping-cart.png">
         <h4>Sem itens no carrinho!</h4>
 </div>

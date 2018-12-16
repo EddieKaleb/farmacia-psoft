@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShoppingCartService } from '../../service/shopping-cart.service';
+import { getMaxListeners } from 'cluster';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -8,7 +9,7 @@ import { ShoppingCartService } from '../../service/shopping-cart.service';
 })
 export class ShoppingCartComponent implements OnInit {
 
-  products= [];
+  products: Map<Number,any>;
 
   valorTotal;
 
@@ -19,13 +20,27 @@ export class ShoppingCartComponent implements OnInit {
     this.getVal();
   }
 
+  getList(){
+    return Array.from(this.products.values());
+  }
+  
   getVal(){
     let soma = 0;
-    this.products.forEach((item)=> 
-    soma += (item.quant * item.item.preco));
+    this.getList().forEach((item)=> 
+    soma += (this.itemQtd(item) * Number(this.getNewPrice(item))));
     this.valorTotal = soma.toFixed(2);
   }
 
+  itemQtd(product){
+    return product.quant;
+  }
+  getNewPrice(product){
+    return (product.item.preco *Number(product.item.categoria.desconto.porcentagem)).toFixed(2);
+  }
 
+  deleteById(id){
+    this.products.delete(id);
+    this.getVal();
+  }
 
 }

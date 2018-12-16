@@ -6,15 +6,20 @@ import Product from '../model/product.module';
 })
 export class ShoppingCartService {
 
-  listCart: Array<any> = [];
+  listCart: Map<number,any> = new Map();
 
   constructor() { }
 
   addCart(product){
-    this.listCart.push(product);
+    if(this.listCart.has(product.item.id)){
+      this.listCart.get(product.item.id).quant+= Number(product.quant);
+    }else{
+      this.listCart.set(product.item.id , product);
+    }
+
   }
 
-  getProducts(): Array<any>{
+  getProducts(): Map<Number,any>{
     return this.listCart;
   }
 }

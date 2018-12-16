@@ -27,8 +27,6 @@ export class ProductsService {
   }
 
   getProductById(id){
-    console.log(id);
-    
     return this.http.get<any>(API_URL+'/produtos/'+id);
   }
 }

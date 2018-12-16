@@ -11,20 +11,24 @@
     width: 100vw; 
     box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.192);
     margin-top: 3rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
     text-align: center;
     width: 100%;
     margin-bottom: 5rem;
 }
 
 #img-h{
-    max-height: 400px;
+    max-height: 50vh;
     min-height: 80px;
     min-width: 200px ;
     width: auto;
     height: auto;
 
+}
+
+#nome{
+    color: #0f93ff;
 }
 
 
@@ -34,7 +38,7 @@
     display: inline-block;
     align-self: center;
     min-width: 15rem;
-    margin-left: 20px;
+    margin-left: 10vw;
     vertical-align: middle;
     padding-top: 50px;
     padding-bottom: 50px;
@@ -42,4 +46,12 @@
     padding-left: 10px;
     padding-right: 10px;
 
+}
+
+.tam{
+    width: 3rem;
+}
+
+#old{
+    font-size: 12px;
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output,  EventEmitter  } from '@angular/core';
 import Product from '../../../model/product.module';
 
 @Component({
@@ -8,13 +8,14 @@ import Product from '../../../model/product.module';
 })
 export class ItemCartComponent implements OnInit {
   @Input() product: any;
+  @Output() dele = new EventEmitter();
 
   valorTotal;
 
   constructor() { }
 
   ngOnInit() {
-    this.valorTotal = (this.product.quant * this.product.item.preco).toFixed(2);
+    this.valorTotal = (this.product.quant * Number(this.getNewPrice())).toFixed(2);
   }
 
   getVal(value){
@@ -26,11 +27,15 @@ export class ItemCartComponent implements OnInit {
       value.value = 1;
     }
     
-    this.valorTotal = (this.product.quant * this.product.item.preco).toFixed(2);
+    this.valorTotal = (this.product.quant * Number(this.getNewPrice())  ).toFixed(2);
   }
 
   deleteItem(){
-    
+    this.dele.emit(this.product.item.id);
+  }
+
+  getNewPrice(){
+    return (this.product.item.preco *Number(this.product.item.categoria.desconto.porcentagem)).toFixed(2);
   }
 
 }

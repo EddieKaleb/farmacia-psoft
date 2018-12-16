@@ -1,11 +1,11 @@
 <section id="mainp">
     <img [src]="product.caminhoImagem" id="img-h">
     <div class="infop">
-      <h2 >{{product.nome}}</h2>
+      <h2 id="nome">{{product.nome}}</h2>
       <h6 class="mb4 gray">{{product.nomeFabricante}}</h6>
-      <h6 class="gray" *ngIf="product.promo">
-        de <s>R$ {{product.preco}}</s>
-        <span class="red"> ({{product.promo}}% de desconto)</span>
+      <h6 id="old" class="gray" *ngIf="isPromo()">
+        <s>R$ {{getOldPrice()}}</s>
+        <span class="red"> ({{getPromo()}}% de desconto)</span>
       </h6>
       <h2 class="mb2 dark-blue">
         <span class="f6 gray" *ngIf="product.promo">por: </span>
@@ -15,7 +15,7 @@
       <button [disabled]="!validQuant()" class="bg-blue dim link w4 pt2 pb1 br2 bn white f6 mr2" (click)="addCart()">
         RESERVAR  <span ></span>
       </button>
-      <input class="w3" type="number" min="1" value="1" #num
+      <input class="tam" type="number" min="1" value="1" #num
           (input)="getVal(num.value)">  
     </div>
 </section>
