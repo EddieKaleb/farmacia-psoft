@@ -1,20 +1,43 @@
 main{
-    padding-top: 2px;
-    padding-bottom:2px;
-    border: solid;
-    border-color: #dcdcdc;
-    border-radius: 15px;
+    padding-top: 4px;
+    padding-bottom:4px;
     display: grid;
-    grid-template-columns: 200px 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    font-size: 12px;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 5%;
+    border-bottom: 1px solid gainsboro;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+   
+main:hover{
+    background-color: gainsboro;
+    transform: scale(1.03);
+    border-radius:3px;
 }
 
-img {
-    height: 100px;
-    width: 100px;
-    grid-row: 1 / 4;
-    grid-column: 1;
+img{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 75px;
+    min-width: 70px;
+}
+
+section{
     align-self: center;
-    margin-left: 15px;
+}
+
+label{
+    font-size: 13px;
+    opacity: 0.7;
+}
+
+#remove{
+    height: 40px;
+    min-width: 40px;
+    align-self: center;
+    margin-left: 8px;
+}
+
+#remove:active{
+    transform: scale(1.06);
 }

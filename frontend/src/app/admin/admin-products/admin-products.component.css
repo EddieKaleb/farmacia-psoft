@@ -1,16 +1,10 @@
 main {
     display: grid;
     grid-template-columns: 15% 1fr 15%;
-    grid-auto-rows: 170px;
-    gap: 3px;
     margin-top: 3px;
-    
 }
 
 app-product-list-item {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    height: 160px;
     grid-column: 2;
 }
 
@@ -21,7 +15,7 @@ app-product-list-item {
     column-gap: 30px;
 }
 
-img {
+#botoes > img {
     height: 50px;
     align-self: center;
     border: 2px solid gainsboro;
@@ -29,10 +23,10 @@ img {
     padding: 5px;
 }
 
-img:hover{
+#botoes > img:hover{
     background-color: gainsboro;
 }
 
-img:active{transform: scale(1.03);}
+#botoes > img:active{transform: scale(1.03);}
 
 
