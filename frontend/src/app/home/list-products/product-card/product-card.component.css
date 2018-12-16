@@ -34,3 +34,15 @@ a{
     border-radius: 1rem;
     text-align: center;
 }
+
+#indis{
+    color: #ff9f9f;
+}
+
+#sad{
+    max-height: 25px;
+    min-height: 5px;
+    width: auto;
+    height: auto;
+}
+

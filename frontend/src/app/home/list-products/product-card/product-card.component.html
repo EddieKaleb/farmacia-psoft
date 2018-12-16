@@ -11,14 +11,23 @@
   
     <h4 class="mb0">{{product.nome}}</h4>
     <label class="f6 gray db mb3">{{product.nomeFabricante}}</label>
-    <label class="f6 gray db ml--2 mb0" *ngIf="isPromo()">de <s>R$ {{getOldPrice()}}</s></label>
-    <h2 class="dark-blue" ngClass="ml--2:product.promo">
-      <span class="f6 gray" *ngIf="isPromo()">por: </span>R$ {{getNewPrice()}}
-    </h2>
     
-    <div class="bg-blue link w-100 pv2 br4 br--bottom bn white visi">
-      RESERVAR
+    <div *ngIf="isAvailable()">
+      <label class="f6 gray db ml--2 mb0" *ngIf="isPromo()">de <s>R$ {{getOldPrice()}}</s></label>
+      <h2 class="dark-blue" ngClass="ml--2:product.promo">
+        <span class="f6 gray" *ngIf="isPromo()">por: </span>R$ {{getNewPrice()}}
+      </h2>
+
+      <div class="bg-blue link w-100 pv2 br4 br--bottom bn white visi">
+        RESERVAR
+      </div>
+    </div>
+    
+    <div class="mb5" id="indis" *ngIf="!isAvailable()">
+      <h6>Produto indisponível.</h6>
+      <img id="sad" src="assets/img/sad.png">
     </div>
 
   </div>
+   
 </a>

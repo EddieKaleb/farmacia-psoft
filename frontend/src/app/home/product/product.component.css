@@ -27,6 +27,17 @@
 
 }
 
+#sad{
+    max-height: 25px;
+    min-height: 5px;
+    width: auto;
+    height: auto;
+}
+
+#indis{
+    color: #ff9f9f;
+}
+
 #nome{
     color: #0f93ff;
 }

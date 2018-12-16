@@ -29,4 +29,8 @@ export class ProductCardComponent implements OnInit {
   getPromo(){
     return Number((Number(this.product.categoria.desconto.porcentagem) -1).toFixed(1))*100;
   }
+
+  isAvailable(){
+    return this.product.situacao.id == 1;
+  }
 }

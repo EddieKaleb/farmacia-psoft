@@ -51,4 +51,8 @@ export class ProductComponent implements OnInit {
   getPromo(){
     return Number((1-Number(this.product.categoria.desconto.porcentagem)).toFixed(1))*100;
   }
+
+  isAvailable(){
+    return this.product.situacao.id == 1;
+  }
 }

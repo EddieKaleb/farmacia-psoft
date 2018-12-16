@@ -3,19 +3,25 @@
     <div class="infop">
       <h2 id="nome">{{product.nome}}</h2>
       <h6 class="mb4 gray">{{product.nomeFabricante}}</h6>
-      <h6 id="old" class="gray" *ngIf="isPromo()">
-        <s>R$ {{getOldPrice()}}</s>
-        <span class="red"> ({{getPromo()}}% de desconto)</span>
-      </h6>
-      <h2 class="mb2 dark-blue">
-        <span class="f6 gray" *ngIf="product.promo">por: </span>
-        R$ {{getNewPrice()}}
-      </h2>
-
-      <button [disabled]="!validQuant()" class="bg-blue dim link w4 pt2 pb1 br2 bn white f6 mr2" (click)="addCart()">
-        RESERVAR  <span ></span>
-      </button>
-      <input class="tam" type="number" min="1" value="1" #num
-          (input)="getVal(num.value)">  
+      <div *ngIf="isAvailable()">
+        <h6 id="old" class="gray" *ngIf="isPromo()">
+          <s>R$ {{getOldPrice()}}</s>
+          <span class="red"> ({{getPromo()}}% de desconto)</span>
+        </h6>
+        <h2 class="mb2 dark-blue">
+          <span class="f6 gray" *ngIf="product.promo">por: </span>
+          R$ {{getNewPrice()}}
+        </h2>
+  
+        <button [disabled]="!validQuant()" class="bg-blue dim link w4 pt2 pb1 br2 bn white f6 mr2" (click)="addCart()">
+          RESERVAR  <span ></span>
+        </button>
+        <input class="tam" type="number" min="1" value="1" #num
+            (input)="getVal(num.value)"> 
+      </div>
+      <div id="indis" *ngIf="!isAvailable()">
+        <h6>Produto indisponível.</h6>
+        <img id="sad" src="assets/img/sad.png">
+      </div>
     </div>
 </section>
