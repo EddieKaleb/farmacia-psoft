@@ -20,7 +20,8 @@ export class ReservaComponent implements OnInit {
   }
 
   getValorTotal(){
-    return this.reserva.venda.valorTotal.toFixed(2);
+    //return Number(this.reserva.venda.valorTotal).toFixed(2);
+    return "";
   }
 
   removeReserva(){
