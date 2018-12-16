@@ -15,20 +15,22 @@ main:hover{
     border-radius:3px;
 }
 
+
 img{
     margin-top: 5px;
     margin-bottom: 5px;
-    height: 75px;
+    height: 70px;
     min-width: 70px;
 }
 
 section{
     align-self: center;
+    text-align: center;
 }
 
 label{
     font-size: 13px;
-    opacity: 0.7;
+    opacity: 0.5;
 }
 
 #remove{

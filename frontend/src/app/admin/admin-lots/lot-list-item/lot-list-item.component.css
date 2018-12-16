@@ -1,24 +1,39 @@
 main{
+    padding-top: 4px;
+    padding-bottom:4px;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(7, 1fr);
+    column-gap: 5%;
     border-bottom: 1px solid gainsboro;
-    column-gap: 15px;
-    height: 110px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
-.info{
+
+img{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 70px;
+    min-width: 70px;
+}
+
+section{
+    align-self: center;
+    text-align: center;
+}
+
+label{
     font-size: 13px;
     opacity: 0.5;
 }
 
-div{
+#remove{
+    height: 40px;
+    min-width: 40px;
     align-self: center;
-    text-align: center;
-    font-size: 17px;
+    margin-left: 8px;
 }
 
-img{
-    height: 70px;
-    min-width: 70px;
-    align-self: center;
+#remove:active{
+    transform: scale(1.06);
 }

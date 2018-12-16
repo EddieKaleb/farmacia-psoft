@@ -1,7 +1,6 @@
 main{
     display: grid;
-    grid-template-columns: 25% 1fr 25%;
-    grid-auto-rows: 115px;
+    grid-template-columns: 15% 1fr 15%;
     font-family: sans-serif;
 
 }
@@ -9,3 +8,18 @@ main{
 app-lot-list-item{
     grid-column: 2;
 }
+
+img {
+    margin-left: 35%;
+    height: 50px;
+    align-self: center;
+    border: 2px solid gainsboro;
+    border-radius: 50px;
+    padding: 5px;
+}
+
+img:hover{
+    background-color: gainsboro;
+}
+
+img:active{transform: scale(1.03);}

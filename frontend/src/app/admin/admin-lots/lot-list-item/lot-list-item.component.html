@@ -1,22 +1,23 @@
 <main>
   <img src="/assets/img/medicamento.png">
-  <div>
+  <section>
     <div> {{lot.product.name}} </div>
-  </div>
-  <div>
-    <div  class="info">Qtd</div>
+  </section>
+  <section>
+    <label  class="info">Qtd</label>
     <div>{{lot.product.quant}}</div>
-  </div>
-  <div>
-    <div  class="info">GTIN</div>
+  </section>
+  <section>
+    <label  class="info">GTIN</label>
     <div>{{lot.gtin}}</div>
-  </div>
-  <div>
-    <div  class="info">Validade</div>
+  </section>
+  <section>
+    <label  class="info">Validade</label>
     <div>{{lot.validade}}</div>
-  </div>
-  <div >
-    <div  class="info">Situação</div>
+  </section>
+  <section>
+    <label  class="info">Situação</label>
     <div>{{situacao()}}</div>
-  </div>
+  </section>
+  <img id="remove" src="assets/img/cancel.png">
 </main>
