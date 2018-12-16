@@ -1,16 +1,16 @@
 
-<a class="grow" [routerLink]="['/product']">
+<a class="grow" [routerLink]="['/product',product.id]">
 
   <div class="absolute top-0 right-1 imgb w3 h3 pt4" *ngIf="product.promo">
     <label class="fw9 f7 white">-{{product.promo}}%</label>
   </div>
 
-  <img [src]="product.image" height="180">
+  <img [src]="product.caminhoImagem" height="180">
   
   <div class="absolute bottom-0 left-0 w-100">
   
-    <h4>{{product.name}}</h4>
-    <label class="f6 gray db">{{product.quant}}</label>
+    <h4>{{product.nome}}</h4>
+    <label class="f6 gray db">{{product.nomeFabricante}}</label>
     <label class="f6 gray db ml--2" *ngIf="product.promo">de <s>R$ {{getOldPrice()}}</s></label>
     <h2 class="dark-blue" ngClass="ml--2:product.promo">
       <span class="f6 gray" *ngIf="product.promo">por: </span>R$ {{getNewPrice()}}

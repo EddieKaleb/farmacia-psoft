@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import Product from '../../model/product.module';
 import { ShoppingCartService } from '../../service/shopping-cart.service';
 import { logWarnings } from 'protractor/built/driverProviders';
+import { ActivatedRoute } from '@angular/router';
+import { ProductsService } from 'src/app/service/products.service';
 
 @Component({
   selector: 'app-product',
@@ -9,12 +11,19 @@ import { logWarnings } from 'protractor/built/driverProviders';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  product = new Product("Escova de dentes", 5.50,5.50,"assets/img/alimento.png","2 unidades", 0);
+  product;
   quant = 1;
 
-  constructor(private cartService: ShoppingCartService) { }
+  constructor(private cartService: ShoppingCartService,
+              private route: ActivatedRoute,
+              private productsService: ProductsService) { }
 
   ngOnInit() {
+
+    this.route.params.subscribe(
+      (params) => { console.log(params['id']);
+      this.productsService.getProductById(params['id']).subscribe(r => this.product = r)});
+       
   }
 
   addCart(){
@@ -30,6 +39,8 @@ export class ProductComponent implements OnInit {
   }
 
   getNewPrice(){
-    return this.product.newPrice.toFixed(2);  
+
+    
+    return this.product.preco.toFixed(2);  
   }
 }

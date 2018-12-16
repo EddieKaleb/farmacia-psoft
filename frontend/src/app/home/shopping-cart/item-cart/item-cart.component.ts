@@ -14,7 +14,7 @@ export class ItemCartComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.valorTotal = (this.product.quant * this.product.item.newPrice).toFixed(2);
+    this.valorTotal = (this.product.quant * this.product.item.preco).toFixed(2);
   }
 
   getVal(value){
@@ -26,7 +26,7 @@ export class ItemCartComponent implements OnInit {
       value.value = 1;
     }
     
-    this.valorTotal = (this.product.quant * this.product.item.newPrice).toFixed(2);
+    this.valorTotal = (this.product.quant * this.product.item.preco).toFixed(2);
   }
 
   deleteItem(){

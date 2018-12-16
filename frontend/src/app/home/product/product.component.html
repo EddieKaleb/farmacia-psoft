@@ -1,10 +1,10 @@
 <section id="mainp">
-    <img [src]="product.image" id="img-h">
+    <img [src]="product.caminhoImagem" id="img-h">
     <div class="infop">
-      <h2 >{{product.name}}</h2>
-      <h6 class="mb4 gray">{{product.quant}}</h6>
+      <h2 >{{product.nome}}</h2>
+      <h6 class="mb4 gray">{{product.nomeFabricante}}</h6>
       <h6 class="gray" *ngIf="product.promo">
-        de <s>R$ {{product.oldPrice}}</s>
+        de <s>R$ {{product.preco}}</s>
         <span class="red"> ({{product.promo}}% de desconto)</span>
       </h6>
       <h2 class="mb2 dark-blue">

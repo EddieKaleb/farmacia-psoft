@@ -7,7 +7,7 @@ import Product from '../../../model/product.module';
   styleUrls: ['./product-card.component.css']
 })
 export class ProductCardComponent implements OnInit {
-  @Input() product: Product;
+  @Input() product: any;
   
   constructor() { }
 
@@ -15,10 +15,10 @@ export class ProductCardComponent implements OnInit {
   }
 
   getNewPrice(){
-    return this.product.newPrice.toFixed(2);
+    return this.product.preco.toFixed(2);
   }
 
   getOldPrice(){
-    return this.product.oldPrice.toFixed(2);
+    return this.product.preco.toFixed(2);
   }
 }

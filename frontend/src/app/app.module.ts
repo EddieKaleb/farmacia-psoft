@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListProductsComponent } from './home/list-products/list-products.component';
@@ -54,6 +54,7 @@ import { ReservaComponent } from './home/usuario/reserva/reserva.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     ModalModule.forRoot(),
   ],
   providers: [],

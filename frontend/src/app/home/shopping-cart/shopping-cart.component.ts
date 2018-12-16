@@ -22,7 +22,7 @@ export class ShoppingCartComponent implements OnInit {
   getVal(){
     let soma = 0;
     this.products.forEach((item)=> 
-    soma += (item.quant * item.item.newPrice));
+    soma += (item.quant * item.item.preco));
     this.valorTotal = soma.toFixed(2);
   }
 
