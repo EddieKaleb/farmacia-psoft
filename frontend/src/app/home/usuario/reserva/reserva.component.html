@@ -2,19 +2,19 @@
     <img src="assets/img/shopping-bag.png">
     <section>
       <label>Data da Reserva</label>
-      <div>15-12-2018</div>
+      <div>{{reserva.dataInicial}}</div>
     </section>
 
     <section>
       <label>Prazo</label>
-      <div>15-12-2018</div>
+      <div>{{reserva.dataFinal}}</div>
     </section>
 
     <section>
       <label>Valor</label>
-      <div>dois dinheiros</div>
+      <div>R$ {{getValorTotal()}}</div>
     </section>
 
-    <img id="cancel" src="assets/img/cancel.png">
+    <img id="cancel" src="assets/img/cancel.png" (click)="removeReserva()">
     
 </main>

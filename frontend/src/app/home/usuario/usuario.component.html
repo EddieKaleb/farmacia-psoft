@@ -12,7 +12,6 @@
     <h4>{{usuario.email}}</h4>
   </section>
   <section id="reservas">
-    <app-reserva></app-reserva>
-    <app-reserva></app-reserva>
+    <app-reserva *ngFor="let reserva of reservas" [reserva] = reserva></app-reserva>
   </section>
 </main>
