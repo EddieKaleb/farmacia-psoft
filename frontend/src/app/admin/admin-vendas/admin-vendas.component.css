@@ -6,3 +6,22 @@ main{
 app-venda-list-item{
     grid-column: 2;
 }
+
+div{
+    align-self: center;
+}
+
+img {
+    height: 50px;
+    align-self: center;
+    border: 2px solid gainsboro;
+    border-radius: 50px;
+    padding: 5px;
+    margin-left: 35%;
+}
+
+img:hover{
+    background-color: gainsboro;
+}
+
+img:active{transform: scale(1.03);}

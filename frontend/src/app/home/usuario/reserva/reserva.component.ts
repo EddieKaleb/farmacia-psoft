@@ -10,13 +10,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ReservaComponent implements OnInit {
   @Input() reserva: Reserva;
-  active: boolean;
 
   constructor(private reservasService: ReservasService,
     private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.active = true;
   }
 
   getValorTotal(){
@@ -26,6 +24,5 @@ export class ReservaComponent implements OnInit {
 
   removeReserva(){
     this.reservasService.removeReserva(this.reserva);
-    this.active = false;
   }
 }
