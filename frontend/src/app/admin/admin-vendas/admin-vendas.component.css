@@ -1,0 +1,8 @@
+main{
+    display: grid;
+    grid-template-columns: 15% 1fr 15%;
+}
+
+app-venda-list-item{
+    grid-column: 2;
+}

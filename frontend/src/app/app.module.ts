@@ -25,6 +25,8 @@ import { AdminAddProductComponent } from './admin/admin-products/admin-add-produ
 import { AdminDescontosComponent } from './admin/admin-products/admin-descontos/admin-descontos.component';
 import { UsuarioComponent } from './home/usuario/usuario.component';
 import { ReservaComponent } from './home/usuario/reserva/reserva.component';
+import { AdminVendasComponent } from './admin/admin-vendas/admin-vendas.component';
+import { VendaListItemComponent } from './admin/admin-vendas/venda-list-item/venda-list-item.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,9 @@ import { ReservaComponent } from './home/usuario/reserva/reserva.component';
     AdminAddProductComponent,
     AdminDescontosComponent,
     UsuarioComponent,
-    ReservaComponent
+    ReservaComponent,
+    AdminVendasComponent,
+    VendaListItemComponent
   ],
   imports: [
     BrowserModule,

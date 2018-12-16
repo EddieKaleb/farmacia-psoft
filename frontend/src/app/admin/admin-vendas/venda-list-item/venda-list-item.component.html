@@ -1,0 +1,24 @@
+<main>
+  <img src="assets/img/shopping-bag.png">
+  <section>
+    <label>Data</label>
+    <div>{{venda.data}}</div>
+  </section>
+
+  <section>
+    <label>Comprador</label>
+    <div>{{venda.usuario.nome}}</div>
+  </section>
+  
+  <section>
+    <label>Status</label>
+    <div>{{venda.status}}</div>
+  </section>
+    
+  <section>
+    <label>Valor</label>
+    <div>R$ {{venda.valorTotal.toFixed(2)}}</div>
+  </section>
+
+  <img id="cancel" src="assets/img/cancel.png" (click)="removeVenda()">
+</main>

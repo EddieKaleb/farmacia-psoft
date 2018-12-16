@@ -8,6 +8,7 @@ import { ProductComponent } from './home/product/product.component';
 import { ShoppingCartComponent } from './home/shopping-cart/shopping-cart.component';
 import { AdminLotsComponent } from './admin/admin-lots/admin-lots.component';
 import { UsuarioComponent } from './home/usuario/usuario.component';
+import { AdminVendasComponent } from './admin/admin-vendas/admin-vendas.component';
 
 const routes: Routes = [
   {path:'', component: HomeComponent,
@@ -22,7 +23,7 @@ const routes: Routes = [
    children: [
     {path:'products', component: AdminProductsComponent},
     {path:'lotes', component: AdminLotsComponent},
-    {path:'vendas', component: AdminProductsComponent}
+    {path:'vendas', component: AdminVendasComponent}
    ]}
    
 ];
