@@ -10,14 +10,16 @@ const API_URL = environment.apiUrl;
 export class AuthenticationService {
   constructor(private http: HttpClient) { }
 
-  login(username: string, password: string) {
-    return this.http.post<any>(`${API_URL}/usuarios/login`, { email: username, senha: password })
+  login(auth) {
+    console.log(auth);
+
+    return this.http.post<any>(`${API_URL}/usuarios/login`, { auth })
       .pipe(map(user => {
         // login successful if there's a user in the response
         if (user) {
           // store user details and basic auth credentials in local storage
           // to keep user logged in between page refreshes
-          user.authdata = window.btoa(username + ':' + password);
+          user.authdata = window.btoa(auth.email + ':' + auth.senha);
           localStorage.setItem('currentUser', JSON.stringify(user));
         }
 

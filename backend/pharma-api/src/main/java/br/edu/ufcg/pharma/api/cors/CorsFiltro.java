@@ -20,7 +20,7 @@ import org.springframework.stereotype.Component;
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class CorsFiltro implements Filter {
 
-	private String origemPermitida = "http://0.0.0.0:4200";
+	private String origemPermitida = "http://localhost:4200";
 	
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
@@ -34,11 +34,11 @@ public class CorsFiltro implements Filter {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse resp = (HttpServletResponse) response;
 		
-		resp.setHeader("Access-Control-Allow-Origin", req.getHeader("Origin"));// origemPermitida);
+		resp.setHeader("Access-Control-Allow-Origin", origemPermitida);
 		resp.setHeader("Access-Control-Allow-Credentials", "true");
 		resp.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
-		if("OPTIONS".equals(req.getMethod())) {//&& origemPermitida.equals(req.getHeader("Origin"))) {
+		if("OPTIONS".equals(req.getMethod()) && origemPermitida.equals(req.getHeader("Origin"))) {
 			resp.setHeader("Access-Control-Allow-Methods", "POST, GET, DELETE, PUT, OPTIONS");
 			resp.setHeader("Access-Control-Allow-Methods", "Authorization, Content-Type, Accept");
 			resp.setHeader("Access-Control-Max-Age", "3600");

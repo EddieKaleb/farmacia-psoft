@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Form, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/service/auth.service';
 
@@ -11,13 +11,9 @@ import { AuthenticationService } from 'src/app/service/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  loginForm: FormGroup;
   loading = false;
-  submitted = false;
   returnUrl: string;
-  error = '';
-  username = '';
-  password = '';
+  error = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -27,19 +23,17 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit() {
-    this.submitted = true;
+  onSubmit(form) {
     this.loading = true;
 
-    console.log(this.username);
-
-    this.authenticationService.login(this.username, this.password)
+    this.authenticationService.login(form)
       .subscribe(
         data => {
           this.router.navigate([this.returnUrl]);
         },
         error => {
-          this.error = error;
+          this.error = true;
+          setTimeout(() => { this.error = false }, 2000);
           this.loading = false;
         });
   }

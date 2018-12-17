@@ -1,10 +1,12 @@
-<form (ngSubmit)="onSubmit()">
+<form #form="ngForm" novalidate>
   <div class="pv5 ph6 ">
     <h1 class="o-40  mb4 fw7 ">Login</h1>
     <label class="f6 o-40">Email</label>
-    <input class="w5 mb4 bn h2" name="username" ngModel required>
+    <input class="w5 mb4 bn h2" name="email" ngModel required>
     <label class="f6 mt3 o-40">Senha</label>
-    <input class="w5 mb4 bn h2" type="password" name="password" ngModel required>
-    <button class="w4 mt4 ml5 bn bg-blue grow f4 white " type="submit">Entrar</button>
+    <input class="w5 mb4 bn h2" type="password" name="senha" ngModel required>
+    <div *ngIf="error" class="alert alert-danger tc">Credenciais inválidas</div>
+    <div *ngIf="loading" class="alert-success">Aguarde...</div>
+    <button class="w4 mt4 ml5 bn bg-blue grow f4 white " (click)="onSubmit(form.value)">Entrar</button>
   </div>
 </form>

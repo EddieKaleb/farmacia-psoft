@@ -2,6 +2,7 @@ package br.edu.ufcg.pharma.api.servico;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
@@ -41,6 +42,10 @@ public class UsuarioServico {
 
 	public Usuario login(Usuario usuario) {
 		Usuario usuarioSalvo = usuarioRepositorio.findByEmail(usuario.getEmail());
+		
+		if (usuarioSalvo == null) {
+			throw new EmptyResultDataAccessException(1);
+		}
 		boolean compare = BCrypt.checkpw(usuario.getSenha(), usuarioSalvo.getSenha());
 		return compare == true ? usuario : null;
 	}

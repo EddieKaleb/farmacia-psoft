@@ -64,7 +64,7 @@ public class UsuarioRecurso {
 	@PostMapping("/login")
 	public ResponseEntity<TipoUsuario> logar(@RequestBody Usuario usuario, HttpServletResponse resposta) {
 		Usuario usuarioSalvo = this.usuarioServico.login(usuario);
-		return usuarioSalvo != null ? ResponseEntity.ok(usuario.getTipo()) : ResponseEntity.notFound().build();
+		return usuarioSalvo != null ? ResponseEntity.ok(((Usuario) usuario).getTipo()) : ResponseEntity.notFound().build();
 	}
 	
 	@GetMapping("/{id}")

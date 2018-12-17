@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -41,7 +42,7 @@ public class ReservaRecurso {
 		return this.reservaRepositorio.findAll();
 	}
 	
-	@PostMapping
+	@PutMapping
 	public ResponseEntity<Reserva> criar(@RequestBody @Valid Reserva reserva, HttpServletResponse resposta) {
 		Reserva reservaSalva = this.reservaServico.salvar(reserva);
 		publisher.publishEvent(new RecursoCriadoEvento(this, resposta, reservaSalva.getId()));
