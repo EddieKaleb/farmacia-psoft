@@ -10,21 +10,21 @@ import { RegisterComponent } from '../register/register.component';
 })
 export class HeaderComponent implements OnInit {
 
-  statusLogin = true;
+  statusLogin = false;
 
 
   constructor(private modalService: BsModalService) { }
-  
-  
+
+
 
   ngOnInit() {
   }
 
-  openLogin(){
+  openLogin() {
     this.modalService.show(LoginComponent);
   }
 
-  openRegister(){
+  openRegister() {
     this.modalService.show(RegisterComponent);
   }
 

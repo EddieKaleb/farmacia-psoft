@@ -2,6 +2,7 @@ package br.edu.ufcg.pharma.api.servico;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 import br.edu.ufcg.pharma.api.model.Usuario;
@@ -16,7 +17,7 @@ public class UsuarioServico {
 	@Autowired
 	private UsuarioRepositorio usuarioRepositorio;
 	
-	public Usuario salvar(Usuario usuario) {
+	public Usuario buscar(Usuario usuario) {
 		Usuario usuarioSalvo = usuarioRepositorio.findByEmail(usuario.getEmail());
 		
 		if (usuarioSalvo != null) {
@@ -36,6 +37,12 @@ public class UsuarioServico {
 		}
 		
 	    return this.usuarioRepositorio.save(usuario);
+	}
+
+	public Usuario login(Usuario usuario) {
+		Usuario usuarioSalvo = usuarioRepositorio.findByEmail(usuario.getEmail());
+		boolean compare = BCrypt.checkpw(usuario.getSenha(), usuarioSalvo.getSenha());
+		return compare == true ? usuario : null;
 	}
 	
 

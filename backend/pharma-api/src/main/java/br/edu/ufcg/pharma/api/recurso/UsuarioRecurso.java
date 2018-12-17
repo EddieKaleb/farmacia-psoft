@@ -25,6 +25,7 @@ import org.springframework.web.context.request.WebRequest;
 
 import br.edu.ufcg.pharma.api.evento.RecursoCriadoEvento;
 import br.edu.ufcg.pharma.api.exceptionhandler.PharmaExceptionHandler.Erro;
+import br.edu.ufcg.pharma.api.model.TipoUsuario;
 import br.edu.ufcg.pharma.api.model.Usuario;
 import br.edu.ufcg.pharma.api.repositorio.UsuarioRepositorio;
 import br.edu.ufcg.pharma.api.servico.UsuarioServico;
@@ -55,9 +56,15 @@ public class UsuarioRecurso {
 	
 	@PostMapping
 	public ResponseEntity<Usuario> criar(@RequestBody @Valid Usuario usuario, HttpServletResponse resposta) {
-		Usuario usuarioSalvo =  this.usuarioServico.salvar(usuario);
+		Usuario usuarioSalvo =  this.usuarioServico.buscar(usuario);
 		publisher.publishEvent(new RecursoCriadoEvento(this, resposta, usuarioSalvo.getId()));
 		return ResponseEntity.status(HttpStatus.CREATED).body(usuarioSalvo);
+	}
+	
+	@PostMapping("/login")
+	public ResponseEntity<TipoUsuario> logar(@RequestBody Usuario usuario, HttpServletResponse resposta) {
+		Usuario usuarioSalvo = this.usuarioServico.login(usuario);
+		return usuarioSalvo != null ? ResponseEntity.ok(usuario.getTipo()) : ResponseEntity.notFound().build();
 	}
 	
 	@GetMapping("/{id}")

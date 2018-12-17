@@ -11,18 +11,16 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.ufcg.pharma.api.config.property.CCCPharmaApiProperty;
 
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class CorsFiltro implements Filter {
 
-private String origemPermitida = "http://localhost:4200";
+	private String origemPermitida = "http://localhost:4200";
 	
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
