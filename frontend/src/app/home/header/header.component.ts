@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { LoginComponent } from '../login/login.component';
 import { RegisterComponent } from '../register/register.component';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -12,6 +12,7 @@ import { AuthenticationService } from 'src/app/service/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
+  public modalRef =  new BsModalRef;
   statusLogin = false;
 
 
@@ -24,24 +25,28 @@ export class HeaderComponent implements OnInit {
 
 
   ngOnInit() {
-    if (localStorage.getItem("currentUser")) {
-      this.statusLogin = true;
-    }
+    this.teste();
   }
 
+  teste(){
+    this.statusLogin =  !JSON.parse(localStorage.getItem('currentUser'));
+  }
   openLogin() {
-    this.modalService.show(LoginComponent);
-    this.statusLogin = true;
+    this.modalRef = this.modalService.show(LoginComponent);
+    this.modalRef.content.onClose.subscribe(result => {
+      this.ngOnInit();
+  })
+    this.ngOnInit();
   }
 
   openRegister() {
     this.modalService.show(RegisterComponent);
   }
 
-  logout() {
-    this.router.navigate(["/"]).then(() => {
-      this.authenticationService.logout();
-    });
+  logout(){
+    this.authenticationService.logout();
+    this.ngOnInit();
   }
+
 
 }

@@ -15,7 +15,7 @@
                 <h1 id="valor">R$ {{valorTotal}}</h1>
         </div>
         
-        <button class="link grow pv2 br2">RESERVAR</button>
+        <button class="link grow pv2 br2" (click)="criar()">RESERVAR</button>
     </footer>
 </main> 
 <div id="warning" *ngIf="!getList().length">

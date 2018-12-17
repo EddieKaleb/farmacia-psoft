@@ -12,25 +12,27 @@ export class ProductCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.product);
+    
   }
 
   getNewPrice(){
-    return (this.product.preco *Number(this.product.categoria.desconto.porcentagem)).toFixed(2);
+    return (this.product.produto.preco *Number(this.product.produto.categoria.desconto.porcentagem)).toFixed(2);
   }
 
   getOldPrice(){
-    return this.product.preco.toFixed(2);
+    return this.product.produto.preco.toFixed(2);
   }
 
   isPromo(){
-    return this.product.categoria.desconto.id>1;
+    return this.product.produto.categoria.desconto.id>1;
   }
 
   getPromo(){
-    return Number((Number(this.product.categoria.desconto.porcentagem) -1).toFixed(1))*100;
+    return Number((Number(this.product.produto.categoria.desconto.porcentagem) -1).toFixed(1))*100;
   }
 
   isAvailable(){
-    return this.product.situacao.id == 1;
+    return this.product.produto.situacao.id == 1;
   }
 }

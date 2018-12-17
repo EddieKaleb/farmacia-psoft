@@ -1,8 +1,8 @@
 <section id="mainp">
-    <img [src]="product.caminhoImagem" id="img-h">
+    <img [src]="product?.caminhoImagem" id="img-h">
     <div class="infop">
-      <h2 id="nome">{{product.nome}}</h2>
-      <h6 class="mb4 gray">{{product.nomeFabricante}}</h6>
+      <h2 id="nome">{{product?.nome}}</h2>
+      <h6 class="mb4 gray">{{product?.nomeFabricante}}</h6>
       <div *ngIf="isAvailable()">
         <h6 id="old" class="gray" *ngIf="isPromo()">
           <s>R$ {{getOldPrice()}}</s>

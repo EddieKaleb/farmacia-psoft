@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ShoppingCartService } from '../../service/shopping-cart.service';
 import { getMaxListeners } from 'cluster';
+import { VendasService } from 'src/app/service/vendas.service';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -13,7 +14,8 @@ export class ShoppingCartComponent implements OnInit {
 
   valorTotal;
 
-  constructor(private cartService: ShoppingCartService) { }
+  constructor(private cartService: ShoppingCartService,
+              private vs : VendasService) { }
 
   ngOnInit() {
     this.products = this.cartService.getProducts();
@@ -41,6 +43,12 @@ export class ShoppingCartComponent implements OnInit {
   deleteById(id){
     this.products.delete(id);
     this.getVal();
+  }
+
+  criar(){
+    let user =  JSON.parse(localStorage.getItem('currentUser'));
+    this.vs.iniciaVenda(user.id).subscribe();
+    
   }
 
 }

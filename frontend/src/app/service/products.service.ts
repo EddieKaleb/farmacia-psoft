@@ -20,11 +20,11 @@ export class ProductsService {
 
 
   getAllProducts(){
-    return this.http.get<any[]>(API_URL+'/produtos');
+    return this.http.get<any[]>(API_URL+'/estoques');
   }
 
   getProductsCategory(id){
-    return this.http.get<any[]>(API_URL+'/produtos/categoria/'+id);
+    return this.http.get<any[]>(API_URL+'/estoques/categoria/'+id);
   }
 
   getProductById(id){

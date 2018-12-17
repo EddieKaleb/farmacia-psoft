@@ -23,7 +23,8 @@ export class ListProductsComponent implements OnInit {
       (params) => {
         let par = params['category']
         if(!par){
-          this.productsService.getAllProducts().subscribe( r => this.products = r);
+          this.productsService.getAllProducts().subscribe( r => {console.log(r);
+           this.products = r});
         }else{
           let id = 1;
           

@@ -27,13 +27,13 @@ export class ProductListItemComponent implements OnInit {
   }
 
   getOldPrice(){
-    return this.product.preco.toFixed(2);
+    return this.product.produto.preco.toFixed(2);
   }
 
   delete(){
-    this.productsService.deleteProduct(this.product.id).subscribe((data)=> { 
+    this.productsService.deleteProduct(this.product.produto.id).subscribe((data)=> { 
         if(!data){
-          this.remove.emit(this.product.id);
+          this.remove.emit(this.product.produto.id);
         }
       });
   }

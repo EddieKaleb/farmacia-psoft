@@ -34,7 +34,7 @@ export class AdminProductsComponent implements OnInit {
 
   remove(id){
     for(let i = 0 ; i < this.products.length; i++){
-      if(this.products[i].id === id){
+      if(this.products[i].produto.id === id){
         this.products.splice(i,1);
       }
     }

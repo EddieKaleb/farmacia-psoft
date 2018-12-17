@@ -25,4 +25,8 @@ export class VendasService {
   finalizaVenda(id){
     return this.http.post<any>(API_URL+"/vendas/"+id, {});
   }
+
+  iniciaVenda(user){
+    return this.http.post<any>(API_URL+"/vendas/iniciar",user);
+  }
 }

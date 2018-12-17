@@ -19,8 +19,9 @@ export class UsuarioComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.usuario = new Usuario(1, "Jorge", "12345678910", "66341", "Rua x", "example@gmail.com");
-    this.reservas = this.reservasService.getReservas();
+    this.usuario =  JSON.parse(localStorage.getItem('currentUser'));
+    this.reservasService.getReservas(this.usuario.id).subscribe(r => this.reservas=r);
+
   }
 
 }
