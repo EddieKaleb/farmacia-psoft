@@ -38,13 +38,19 @@ public class SegurancaConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-				//.antMatchers("/produtos").permitAll()
-				//.antMatchers("/usuarios").permitAll()
-				//.anyRequest().authenticated()
-				.anyRequest().permitAll()
+				.antMatchers("/categorias").permitAll()
+				.antMatchers("/produtos").permitAll()
+				.antMatchers("/descontos").permitAll()
+				.antMatchers("/estoques").permitAll()
+				.antMatchers("/lotes").permitAll()
+				.antMatchers("/produtos-situacoes").permitAll()
+			    .antMatchers("/reservas").permitAll()
+			    .antMatchers("/vendas").permitAll()
+			    .antMatchers("/usuarios").permitAll()
+				.anyRequest().authenticated()
 				.and()
 			.httpBasic().and()
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 			.csrf().disable();
-	}
+}
 }

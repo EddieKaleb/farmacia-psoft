@@ -1,5 +1,7 @@
 package br.edu.ufcg.pharma.api.recurso;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +23,11 @@ public class EstoqueRecurso {
 	@Autowired
 	private EstoqueServico estoqueServico;
 	
+	@GetMapping
+	public List<Estoque> listar() {
+		return estoqueRepositorio.findAll();
+	}
+	
 	@GetMapping("/{id}")
 	public ResponseEntity<Estoque> buscarPorId(@PathVariable Integer id) {
 		Estoque estoqueSalvo = this.estoqueRepositorio.findOne(id);
@@ -31,6 +38,15 @@ public class EstoqueRecurso {
 	public ResponseEntity<Estoque> atualizarValidade(@PathVariable Integer id) {
 		Estoque estoqueSalvo = this.estoqueServico.atualizarValidadePorProdutoId(id);
 		return estoqueSalvo != null ? ResponseEntity.ok(estoqueSalvo) : ResponseEntity.notFound().build();
+	}
+	
+	@GetMapping("/atualizar")
+	public List<Estoque> atualizarTodasValidades() {
+		List<Estoque> estoques = estoqueRepositorio.findAll();
+		for (Estoque e : estoques) {
+			this.estoqueServico.atualizarValidadePorProdutoId(e.getProduto().getId());
+		}
+		return estoqueRepositorio.findAll();
 	}
 	
 }

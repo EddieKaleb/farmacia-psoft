@@ -30,6 +30,9 @@ public class Produto {
 	@Column(name = "NOME_FABRICANTE")
 	private String nomeFabricante;
 	
+	@Column(name = "CAMINHO_IMAGEM")
+	private String caminhoImagem;
+	
 	@NotNull
 	@Column(name = "PRECO")
 	private Double preco;
