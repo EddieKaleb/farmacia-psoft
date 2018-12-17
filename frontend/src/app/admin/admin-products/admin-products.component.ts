@@ -20,7 +20,8 @@ export class AdminProductsComponent implements OnInit {
     private route: ActivatedRoute, private modalService: BsModalService) { }
 
   ngOnInit() {
-    this.productsService.getAllProducts().subscribe( r => this.products = r);
+    this.productsService.getProducts().subscribe( r => { console.log(r);
+     this.products = r});
   }
 
   openAddProduct(){
@@ -34,7 +35,7 @@ export class AdminProductsComponent implements OnInit {
 
   remove(id){
     for(let i = 0 ; i < this.products.length; i++){
-      if(this.products[i].produto.id === id){
+      if(this.products[i].id === id){
         this.products.splice(i,1);
       }
     }

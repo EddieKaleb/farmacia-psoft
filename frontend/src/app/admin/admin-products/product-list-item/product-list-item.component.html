@@ -1,15 +1,15 @@
 <main>
-  <img [src]="product.produto.caminhoImagem" height="200" (click)="openDetails()">
+  <img [src]="product.caminhoImagem" height="200" (click)="openDetails()">
 
     
   <section class="info" (click)="openDetails()">
       <label>Produto ID</label>
-      <div>{{product.produto.id}}</div>
+      <div>{{product.id}}</div>
   </section>
 
   <section class="info" (click)="openDetails()">
     <label>Nome</label>
-    <div>{{product.produto.nome}}</div>
+    <div>{{product.nome}}</div>
   </section>
 
   <section class="info" (click)="openDetails()">

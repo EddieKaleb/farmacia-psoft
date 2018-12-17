@@ -43,4 +43,8 @@ export class ProductsService {
     return this.http.delete<any>(API_URL+"/produtos/"+id);
   }
 
+  getProducts(){
+    return this.http.get<any[]>(API_URL+'/produtos');
+  }
+
 }
