@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
     this.loading = true;
 
     console.log(this.username);
-    /*
+
     this.authenticationService.login(this.username, this.password)
       .subscribe(
         data => {
@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
         error => {
           this.error = error;
           this.loading = false;
-        });*/
+        });
   }
 
 }
