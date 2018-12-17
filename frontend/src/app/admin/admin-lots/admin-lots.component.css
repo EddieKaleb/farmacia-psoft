@@ -6,6 +6,7 @@ main{
 }
 
 app-lot-list-item{
+    margin-top: 3px;
     grid-column: 2;
 }
 

@@ -3,7 +3,6 @@ main{
     padding-bottom:4px;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    column-gap: 5%;
     border-bottom: 1px solid gainsboro;
     padding-left: 30px;
     padding-right: 30px;

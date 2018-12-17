@@ -4,6 +4,7 @@ main{
 }
 
 app-venda-list-item{
+    margin-top: 3px;
     grid-column: 2;
 }
 
