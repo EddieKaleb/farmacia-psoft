@@ -36,6 +36,7 @@ public class CorsFiltro implements Filter {
 		
 		resp.setHeader("Access-Control-Allow-Origin", req.getHeader("Origin"));// origemPermitida);
 		resp.setHeader("Access-Control-Allow-Credentials", "true");
+		resp.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
 		if("OPTIONS".equals(req.getMethod())) {//&& origemPermitida.equals(req.getHeader("Origin"))) {
 			resp.setHeader("Access-Control-Allow-Methods", "POST, GET, DELETE, PUT, OPTIONS");
