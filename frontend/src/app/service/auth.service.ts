@@ -7,7 +7,7 @@ const API_URL = environment.apiUrl;
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
 
-
+  user;
 
   constructor(private http: HttpClient) { }
 
@@ -19,7 +19,9 @@ export class AuthenticationService {
         if (user) {
           // store user details and basic auth credentials in local storage
           // to keep user logged in between page refreshes
+
           user.authdata = window.btoa(auth.email + ':' + auth.senha);
+          this.user = user;
           localStorage.setItem('currentUser', JSON.stringify(user));
         }
         return user;
