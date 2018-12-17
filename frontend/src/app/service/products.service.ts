@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import Product from '../model/product.module';
 import {HttpClient} from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import {Headers} from '@angular/http';
-import { formArrayNameProvider } from '@angular/forms/src/directives/reactive_directives/form_group_name';
+
 
 const API_URL = environment.apiUrl;
 
@@ -38,6 +37,10 @@ export class ProductsService {
 
   applyPromotion(categoria){
     return this.http.put<any>(API_URL+"/categorias/"+categoria.id, categoria);
+  }
+
+  deleteProduct(id){
+    return this.http.delete<any>(API_URL+"/produtos/"+id);
   }
 
 }

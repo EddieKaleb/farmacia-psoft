@@ -2,12 +2,13 @@ main{
     padding-top: 4px;
     padding-bottom:4px;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     border-bottom: 1px solid gainsboro;
     padding-left: 30px;
     padding-right: 30px;
+    -ms-grid-column-align: center;
 }
-   
+
 main:hover{
     background-color: gainsboro;
     transform: scale(1.03);

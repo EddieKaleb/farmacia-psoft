@@ -1,11 +1,12 @@
 <main>
-  <img src="/assets/img/medicamento.png">
+  <img [src]="lot.produto.caminhoImagem">
   <section>
-    <div> {{lot.product.name}} </div>
+    <label  class="info">Produto ID</label>
+    <div> {{lot.produto.id}} </div>
   </section>
   <section>
     <label  class="info">Qtd</label>
-    <div>{{lot.product.quant}}</div>
+    <div>{{lot.quantidade}}</div>
   </section>
   <section>
     <label  class="info">GTIN</label>
@@ -17,7 +18,7 @@
   </section>
   <section>
     <label  class="info">Situação</label>
-    <div>{{situacao()}}</div>
+    <div>{{lot.situacao.situacao}}</div>
   </section>
-  <img id="remove" src="assets/img/cancel.png">
+  <img id="remove" src="assets/img/cancel.png" (click)="delete()">
 </main>

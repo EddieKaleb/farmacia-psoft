@@ -12,7 +12,7 @@
   
   <section>
     <label>Status</label>
-    <div>{{venda.status}}</div>
+    <div>{{venda.status.status}}</div>
   </section>
     
   <section>
@@ -20,5 +20,6 @@
     <div>R$ {{venda.valorTotal.toFixed(2)}}</div>
   </section>
 
-  <img id="cancel" src="assets/img/cancel.png" (click)="removeVenda()">
+  <img class="action" src="assets/img/cancel.png" (click)="removeVenda()">
+  <img class="action" src="assets/img/checked.png" (click)="finalizaVenda()">
 </main>

@@ -21,7 +21,12 @@ export class VendaListItemComponent implements OnInit {
   }
 
   removeVenda(){
-    this.vendasService.removeVenda(this.venda);
+    this.vendasService.removeVenda(this.venda.id).subscribe();
+  }
+
+  finalizaVenda(){
+    this.vendasService.finalizaVenda(this.venda.id).subscribe();
+  }
   }
 
 }

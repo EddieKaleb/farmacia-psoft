@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { ProductsService } from 'src/app/service/products.service';
+
 
 @Component({
   selector: 'app-admin-add-product',
@@ -7,6 +8,8 @@ import { ProductsService } from 'src/app/service/products.service';
   styleUrls: ['./admin-add-product.component.css']
 })
 export class AdminAddProductComponent implements OnInit {
+
+  @Output() action = new EventEmitter();
 
   constructor(private productService: ProductsService) { }
 
@@ -40,7 +43,9 @@ export class AdminAddProductComponent implements OnInit {
       }
     }
     this.productService.createProduct(product).subscribe();
-
+    this.action.emit(true);
   }
+
+
 
 }

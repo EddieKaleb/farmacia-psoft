@@ -1,7 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output , EventEmitter } from '@angular/core';
 import Product from 'src/app/model/product.module';
 import { AdminProductDetailsComponent } from './admin-product-details/admin-product-details.component';
 import { BsModalService } from 'ngx-bootstrap/modal/';
+import { ProductsService } from 'src/app/service/products.service';
+
 
 
 @Component({
@@ -11,7 +13,10 @@ import { BsModalService } from 'ngx-bootstrap/modal/';
 })
 export class ProductListItemComponent implements OnInit {
   @Input() product: any;
-  constructor(private modalService: BsModalService) { }
+  @Output() remove = new EventEmitter();
+
+  constructor(private modalService: BsModalService, 
+              private productsService: ProductsService) { }
 
   ngOnInit() {
     
@@ -26,6 +31,11 @@ export class ProductListItemComponent implements OnInit {
   }
 
   delete(){
-    
+    this.productsService.deleteProduct(this.product.id).subscribe((data)=> { 
+        if(!data){
+          this.remove.emit(this.product.id);
+        }
+      });
   }
+    
 }
