@@ -10,7 +10,7 @@ import { BsModalService } from 'ngx-bootstrap/modal/';
   styleUrls: ['./product-list-item.component.css']
 })
 export class ProductListItemComponent implements OnInit {
-  @Input() product: Product;
+  @Input() product: any;
   constructor(private modalService: BsModalService) { }
 
   ngOnInit() {
@@ -21,7 +21,11 @@ export class ProductListItemComponent implements OnInit {
     let modalRef = this.modalService.show(AdminProductDetailsComponent).content.setProduct(this.product);
   }
 
-  removeProduct(){
+  getOldPrice(){
+    return this.product.preco.toFixed(2);
+  }
 
+  delete(){
+    
   }
 }

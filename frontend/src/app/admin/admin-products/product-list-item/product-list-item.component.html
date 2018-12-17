@@ -1,26 +1,28 @@
 <main>
-  <img [src]="product.image" (click)="openDetails()">
+  <img [src]="product.caminhoImagem" height="200" (click)="openDetails()">
 
   <section class="info" (click)="openDetails()">
-    <label>Nome</label>
-    <div>{{product.name}}</div>
+    <label>Nome:</label>
+    <div>{{product.nome}}</div>
+    <label>Fabricante:</label>
+    <div>{{product.nomeFabricante}}</div>
   </section>
 
   <section class="info" (click)="openDetails()">
-    <label>Quantidade</label>
-    <div >{{product.quant}}</div>
+    <label>Categoria:</label>
+    <div >{{product.categoria.nome}}</div>
   </section>
 
   <section class="info" (click)="openDetails()">
-    <label>Valor</label>
-    <div>R$ {{product.oldPrice}}</div>
+    <label>Valor:</label>
+    <div>R$ {{ getOldPrice()}}</div>
   </section>
 
   <section class="info" (click)="openDetails()">
-    <label>Desconto</label>
+    <label>Quantidade:</label>
     <div>{{product.promo}}</div>
   </section>
 
-  <img id="remove" src="/assets/img/cancel.png" (click)="removeProduct()">
+  <img id="remove" src="/assets/img/cancel.png" (click)="delete()">
     
 </main>

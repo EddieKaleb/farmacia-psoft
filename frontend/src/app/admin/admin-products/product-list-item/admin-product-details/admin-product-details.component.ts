@@ -7,7 +7,9 @@ import Product from 'src/app/model/product.module';
   styleUrls: ['./admin-product-details.component.css']
 })
 export class AdminProductDetailsComponent implements OnInit {
-  @Input() product: Product;
+  @Input() product: any;
+  promo = 0;
+  preco = 0;
   constructor() { }
 
   ngOnInit() {
@@ -17,4 +19,5 @@ export class AdminProductDetailsComponent implements OnInit {
   setProduct(product){
     this.product = product;
   }
+
 }

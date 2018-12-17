@@ -1,43 +1,33 @@
 <main>
   <div>
-    <img [src]="product.image">
+    <img [src]="product.caminhoImagem">
   </div>
 
   <div id="info">
     <section>
       <label>Nome</label>
-      <div>{{product.name}}</div>
-    </section>
-  
-    <section>
-      <label>Quantidade</label>
-      <div >{{product.quant}}</div>
+      <div>{{product.nome}}</div>
     </section>
   
     <section>
       <label>Valor</label>
-      <div>R$ {{product.oldPrice}}</div>
+      <div>R$ {{product.preco}}</div>
     </section>
-  
+<!--   
     <section>
       <label>Desconto</label>
-      <div>{{product.promo}}</div>
-    </section>
+      <div>{{product.categoria.desconto.id|json}}</div>
+    </section> -->
 
     <section>
         <label>Fabricante</label>
-        <div>{{product.promo}}</div>
+        <div>{{product.nomeFabricante}}</div>
     </section>
 
     <section>
-        <label>Codigo de Barras</label>
-        <div>{{product.promo}}</div>
+        <label>Codigo</label>
+        <div>{{product.id}}</div>
     </section> 
-    
-    <section>
-        <label>Desconto</label>
-        <div>{{product.promo}}</div>
-    </section>
   </div>
 
 </main>

@@ -2,43 +2,68 @@
   <h3>
     Adicionar Produto
   </h3>
-  <div>
-    <label>
-      Nome
-    </label>
-    <input type="text" name="nome">
-  </div>
-
-  <div>
-    <label>
-      Quantidade
-    </label>
-    <input type="number" name="quantidade">
-  </div>
-
-  <div>
-    <label>
-      Valor
-    </label>
-    <input type="text" name="valor">
-  </div>
+  <hr>
+  <form #form="ngForm" novalidate>
+    <div class="inlineP">
+      <div>
+        <label>
+            Nome
+        </label>
+        <input type="text" name="nome" 
+                [ngClass]="{'error': !iptName.valid && (iptName.dirty || iptName.touch)}"
+                #iptName="ngModel" ngModel required>
+      </div>
   
-  <div>
-  <label>
-    Fabricante
-  </label>
-  <input type="text" name="fabricante">
-  </div>
+      <div>
+        <label>
+          Fabricante
+        </label>
+        <input type="text" name="fabricante" 
+            [ngClass]="{'error': !iptFab.valid && (iptFab.dirty || iptFab.touch)}"
+            #iptFab="ngModel" ngModel required>
+      </div>
+    </div>
   
-  <div>
-  <label>
-    Categoria
-  </label>
-  <select>
-    <option value="medicamento">Medicamento</option>
-    <option value="higiene">Higiene Pessoal</option>
-    <option value="alimento">Alimento</option>
-    <option value="cosmetico">Cosmetico</option>
-  </select>
-  </div>
+  
+    <div class="inlineP2">
+      <div>
+        <label>
+          Quantidade
+        </label>
+        <input type="number" name="quantidade"  min="0" 
+              [ngClass]="{'error': !iptQtd.valid && (iptQtd.dirty || iptQtd.touch)}"
+              #iptQtd="ngModel" ngModel required>
+      </div>
+  
+      <div>
+        <label>
+          Valor
+        </label>
+        <input type="number" name="valor" min="0" 
+              [ngClass]="{'error': !iptVal.valid && (iptVal.dirty || iptVal.touch)}"
+              #iptVal="ngModel" ngModel required>
+      </div>
+  
+      <div>
+        <label>
+          Categoria
+        </label>
+        <select  name="categoria" ngModel required>
+          <option value="1">Medicamento</option>
+          <option value="2">Higiene Pessoal</option>
+          <option value="4">Alimento</option>
+          <option value="3">Cosmetico</option>
+        </select>
+      </div>
+  
+    </div>
+    <button [disabled]="!form.valid"  
+            class="bg-blue dim link w-80 pv2 br2 bn white f6"
+            [ngClass]="{'disable':!form.valid}" 
+            (click)="create(form.value)">
+      CADASTRAR
+    </button>
+
+  </form>
+  
 </main>

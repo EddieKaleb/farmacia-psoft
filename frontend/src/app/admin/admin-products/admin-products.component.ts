@@ -18,10 +18,7 @@ export class AdminProductsComponent implements OnInit {
     private route: ActivatedRoute, private modalService: BsModalService) { }
 
   ngOnInit() {
-    this.products = [new Product("pasta", 2, 2.5, "/assets/img/alimento.png", 3, 0),
-    new Product("pasta", 2, 2.5, "/assets/img/medicamento.png", 3, 0),
-    new Product("pasta", 2, 2.5, "/assets/img/cosmetico.png", 3, 0),
-    new Product("pasta", 2, 2.5, "/assets/img/higiene.png", 3, 0)];
+    this.productsService.getAllProducts().subscribe( r => this.products = r);
   }
 
   openAddProduct(){

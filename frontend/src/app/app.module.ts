@@ -28,6 +28,7 @@ import { ReservaComponent } from './home/usuario/reserva/reserva.component';
 import { AdminVendasComponent } from './admin/admin-vendas/admin-vendas.component';
 import { VendaListItemComponent } from './admin/admin-vendas/venda-list-item/venda-list-item.component';
 import { AdminAddVendaComponent } from './admin/admin-vendas/admin-add-venda/admin-add-venda.component';
+import { FormsModule } from '@angular/forms';
 import { AdminProductDetailsComponent } from './admin/admin-products/product-list-item/admin-product-details/admin-product-details.component';
 import { AdminAddLotComponent } from './admin/admin-lots/admin-add-lot/admin-add-lot.component';
 
@@ -65,6 +66,7 @@ import { AdminAddLotComponent } from './admin/admin-lots/admin-add-lot/admin-add
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     ModalModule.forRoot(),
   ],
   providers: [],
