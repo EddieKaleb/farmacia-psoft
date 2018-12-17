@@ -49,6 +49,12 @@ public class ReservaRecurso {
 		return ResponseEntity.status(HttpStatus.CREATED).body(reservaSalva);
 	}
 	
+	@GetMapping("/usuario/{id}")
+	public ResponseEntity<List<Reserva>> buscarPorUsuarioId(@PathVariable Integer id) {
+		List<Reserva> reserva = this.reservaRepositorio.findAllByUsuarioId(id);
+		return reserva != null ? ResponseEntity.ok(reserva) : ResponseEntity.notFound().build();
+	}
+	
 	@GetMapping("/{id}")
 	public ResponseEntity<Reserva> buscarPorId(@PathVariable Integer id) {
 		Reserva reserva = this.reservaRepositorio.findOne(id);
