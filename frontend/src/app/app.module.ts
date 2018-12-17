@@ -29,6 +29,8 @@ import { AdminVendasComponent } from './admin/admin-vendas/admin-vendas.componen
 import { VendaListItemComponent } from './admin/admin-vendas/venda-list-item/venda-list-item.component';
 import { AdminAddVendaComponent } from './admin/admin-vendas/admin-add-venda/admin-add-venda.component';
 import { FormsModule } from '@angular/forms';
+import { AdminProductDetailsComponent } from './admin/admin-products/product-list-item/admin-product-details/admin-product-details.component';
+import { AdminAddLotComponent } from './admin/admin-lots/admin-add-lot/admin-add-lot.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +59,8 @@ import { FormsModule } from '@angular/forms';
     AdminVendasComponent,
     VendaListItemComponent,
     AdminAddVendaComponent,
+    AdminProductDetailsComponent,
+    AdminAddLotComponent
   ],
   imports: [
     BrowserModule,
@@ -67,6 +71,8 @@ import { FormsModule } from '@angular/forms';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [LoginComponent,RegisterComponent, AdminAddProductComponent, AdminDescontosComponent, AdminAddVendaComponent],
+  entryComponents: [LoginComponent,RegisterComponent, AdminAddProductComponent, 
+    AdminDescontosComponent, AdminAddVendaComponent, AdminProductDetailsComponent,
+    AdminAddLotComponent],
 })
 export class AppModule { }

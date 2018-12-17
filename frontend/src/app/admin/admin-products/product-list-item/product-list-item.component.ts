@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import Product from 'src/app/model/product.module';
+import { AdminProductDetailsComponent } from './admin-product-details/admin-product-details.component';
+import { BsModalService } from 'ngx-bootstrap/modal/';
+
 
 @Component({
   selector: 'app-product-list-item',
@@ -8,9 +11,14 @@ import Product from 'src/app/model/product.module';
 })
 export class ProductListItemComponent implements OnInit {
   @Input() product: any;
-  constructor() { }
+  constructor(private modalService: BsModalService) { }
 
   ngOnInit() {
+    
+  }
+
+  openDetails(){
+    let modalRef = this.modalService.show(AdminProductDetailsComponent).content.setProduct(this.product);
   }
 
   getOldPrice(){

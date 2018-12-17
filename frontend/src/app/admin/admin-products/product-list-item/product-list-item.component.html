@@ -1,24 +1,24 @@
 <main>
-  <img [src]="product.caminhoImagem" height="200">
+  <img [src]="product.caminhoImagem" height="200" (click)="openDetails()">
 
-  <section class="info">
+  <section class="info" (click)="openDetails()">
     <label>Nome:</label>
     <div>{{product.nome}}</div>
     <label>Fabricante:</label>
     <div>{{product.nomeFabricante}}</div>
   </section>
 
-  <section class="info">
+  <section class="info" (click)="openDetails()">
     <label>Categoria:</label>
     <div >{{product.categoria.nome}}</div>
   </section>
 
-  <section class="info">
+  <section class="info" (click)="openDetails()">
     <label>Valor:</label>
     <div>R$ {{ getOldPrice()}}</div>
   </section>
 
-  <section class="info">
+  <section class="info" (click)="openDetails()">
     <label>Quantidade:</label>
     <div>{{product.promo}}</div>
   </section>
