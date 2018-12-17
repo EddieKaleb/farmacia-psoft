@@ -1,28 +1,28 @@
 import { Injectable } from '@angular/core';
 import Venda from '../model/venda.module';
 import Usuario from '../model/usuario.module';
+import {HttpClient} from '@angular/common/http';
+import { environment } from '../../environments/environment';
+
+
+const API_URL = environment.apiUrl;
 
 @Injectable({
   providedIn: 'root'
 })
 export class VendasService {
 
-  vendas: Array<Venda>;
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getvendas(): Array<Venda>{
-    this.vendas = [
-        new Venda(1, 2.5, 5, "15-12-2018", new Usuario(1, "Jorge", "123455", "1235135", "rua X", "email"), 1),
-        new Venda(2, 10, 50, "15-12-2018", new Usuario(1, "Jorge", "123455", "1235135", "rua X", "email"), 0)
-    ];
-    return this.vendas;
+  getvendas(){
+    return this.http.get<any>(API_URL+"/vendas"); 
   }
 
-  removeVenda(venda){
-    let index = this.vendas.indexOf(venda);
-    if(index > -1){
-        this.vendas.splice(index, 1);
-    }
+  removeVenda(id){
+    return this.http.delete<any>(API_URL+"/vendas/"+id);
+  }
 
+  finalizaVenda(id){
+    return this.http.post<any>(API_URL+"/vendas/"+id, {});
   }
 }

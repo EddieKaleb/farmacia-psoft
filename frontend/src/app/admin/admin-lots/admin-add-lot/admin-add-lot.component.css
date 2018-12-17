@@ -1,5 +1,6 @@
 main{
     padding: 25px;
+    text-align: center;
 }
 
 div{
@@ -11,4 +12,27 @@ div{
     align-self: center;
     margin-top: 15px;
     width: 35%;
+}
+
+#inline{
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: start;
+}
+
+#inline2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 40px;
+    text-align: start;
+}
+
+button{
+    margin-top: 20px;
+}
+
+.disable{
+    opacity: 0.4;
+
 }

@@ -1,38 +1,48 @@
-<main>
-    <h3>
-      Adicionar Lote
-    </h3>
-    
-    <div>
-      <label>
-        GTIN
-      </label>
-      <input type="text" name="usuario">
-    </div>
-  
-    <div>
-      <label>
-        Quantidade
-      </label>
-      <input type="text" name="produtos">
-    </div>
-    
-    <div>
-      <label>
-        Validade
-      </label>
-      <input type="date" name="data">
-    </div>
 
-    <div>
-      <label>
-        Produto
-      </label>
-      <input type="text" name="data">
-    </div>
-    <div>
-      <input type="submit" value="Adicionar" id="submit">
-    </div>
-    
+<main>
+    <form #form="ngForm" novalidate>
+      <h3>
+        Criar Lote
+      </h3>
+      <hr>  
+      <div id="inline2">
+
+        <div>
+          <label>
+            GTIN
+          </label>
+          <input type="text" name="gtin" ngModel required>
+        </div>
+        <div>
+            <label>
+              Identificador do produto
+            </label>
+            <input type="number" name="id" ngModel required>
+        </div>
+              
+      </div>
+      <div id="inline">
+        <div>
+          <label>
+            Quantidade
+          </label>
+          <input type="number" name="quantidade" ngModel required>
+        </div>
+
+        <div>
+          <label>
+            Validade
+          </label>
+          <input type="date" name="validade" ngModel required>
+        </div>
+      </div>
+
+          <button [disabled]="!form.valid"  
+                  class="bg-blue dim link w-80 pv2 br2 bn white f6"
+                  [ngClass]="{'disable':!form.valid}" 
+                  (click)="create(form.value)">
+                    CADASTRAR
+          </button>
+    </form>
   </main>
   

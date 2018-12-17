@@ -16,11 +16,22 @@ export class AdminLotsComponent implements OnInit {
     private route: ActivatedRoute, private modalService: BsModalService) { }
 
   ngOnInit() {
-    this.lots = this.lotsService.getLots();
-    console.log(this.lots);
+    this.lotsService.getLots().subscribe(r => this.lots = r);
+
   }
 
   openAddLot(){
     this.modalService.show(AdminAddLotComponent);
+  }
+
+  remove(id){
+    for(let i = 0 ; i < this.lots.length; i++){
+      if(this.lots[i].id === id){
+        this.lots.splice(i,1);
+      }
+    }
+
+    this.ngOnInit();
+    
   }
 }

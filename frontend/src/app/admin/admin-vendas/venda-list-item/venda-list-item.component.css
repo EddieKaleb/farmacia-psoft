@@ -2,7 +2,7 @@ main {
     padding-top: 4px;
     padding-bottom: 4px;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(7, 1fr);
     column-gap: 5%;
     border-bottom: 1px solid gainsboro;
     padding-left: 30px;
@@ -32,13 +32,14 @@ label{
     opacity: 0.5;
 }
 
-#cancel{
+.action{
     height: 40px;
     min-width: 40px;
     align-self: center;
     margin-left: 8px;
 }
 
-#cancel:active{
+.action:active{
     transform: scale(1.06);
 }
+

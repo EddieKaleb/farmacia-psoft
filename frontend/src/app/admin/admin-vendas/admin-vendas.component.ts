@@ -11,11 +11,11 @@ import { AdminAddVendaComponent } from './admin-add-venda/admin-add-venda.compon
 })
 export class AdminVendasComponent implements OnInit {
 
-  vendas: Array<Venda>;
+  vendas: Array<any>;
   constructor(private vendasService: VendasService, private modalService: BsModalService) { }
 
   ngOnInit() {
-    this.vendas = this.vendasService.getvendas();
+    this.vendasService.getvendas().subscribe(r => this.vendas = r);
   }
 
   openAddVendas(){

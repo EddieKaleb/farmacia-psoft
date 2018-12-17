@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import Product from '../model/product.module';
 import Lot from '../model/lot.module';
+import { environment } from '../../environments/environment';
+import { HttpClient } from '@angular/common/http';
+
+const API_URL = environment.apiUrl;
 
 @Injectable({
   providedIn: 'root'
@@ -8,15 +12,17 @@ import Lot from '../model/lot.module';
 export class LotsService {
 
   lots: Array<Lot>;
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getLots(): Array<Lot>{
-    let escova = new Product("Escova de dentes", 5.50,5.50,"assets/img/medicamento.png",2, 0);
-    let pasta = new Product("Pasta de dentes", 3.00,2.50, "assets/img/medicamento.png", 30, 30);
-    this.lots = [
-        new Lot(1, 2, "10-12-2018", 1, escova.quant, escova),
-        new Lot(2, 2, "10-12-2018", 0, pasta.quant, pasta)
-    ];
-    return this.lots
+  getLots(){
+    return this.http.get<any>(API_URL+"/lotes");
+  }
+
+  createLot(lot){
+    return this.http.post<any>(API_URL+"/lotes",lot);
+  }
+
+  deleteLot(id){
+    return this.http.delete<any>(API_URL+"/lotes/"+id);
   }
 }

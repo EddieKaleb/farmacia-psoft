@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import Lot from 'src/app/model/lot.module';
+import { ProductsService } from 'src/app/service/products.service';
+import { LotsService } from 'src/app/service/lots.service';
 
 @Component({
   selector: 'app-lot-list-item',
@@ -8,13 +10,14 @@ import Lot from 'src/app/model/lot.module';
 })
 export class LotListItemComponent implements OnInit {
   @Input() lot: Lot;
-  constructor() { }
+  @Output() remove = new EventEmitter();
+
+  constructor(private lotsService: LotsService) { }
 
   ngOnInit() {
   }
 
-  situacao(){
-    return this.lot.situacao ? "Válido" : "Vencido"; 
+  delete(){
+    this.lotsService.deleteLot(this.lot.id).subscribe((data)=> this.remove.emit(this.lot.id));
   }
-
 }
