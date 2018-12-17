@@ -7,8 +7,6 @@ const API_URL = environment.apiUrl;
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
 
-  user;
-
   constructor(private http: HttpClient) { }
 
   login(auth) {
@@ -21,8 +19,8 @@ export class AuthenticationService {
           // to keep user logged in between page refreshes
 
           user.authdata = window.btoa(auth.email + ':' + auth.senha);
-          this.user = user;
           localStorage.setItem('currentUser', JSON.stringify(user));
+          localStorage.setItem('user', user);
         }
         return user;
       }));
