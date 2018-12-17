@@ -5,7 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties("cccpharma")
 public class CCCPharmaApiProperty {
 
-	private String origemPermitida = "localhost:8080";
+	private String origemPermitida = "http://localhost:4200";
 
 	public String getOrigemPermitida() {
 		return origemPermitida;

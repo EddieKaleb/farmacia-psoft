@@ -47,7 +47,7 @@ public class SegurancaConfig extends WebSecurityConfigurerAdapter{
 			    .antMatchers("/reservas").permitAll()
 			    .antMatchers("/vendas").permitAll()
 			    .antMatchers("/usuarios").permitAll()
-				.anyRequest().authenticated()
+				.anyRequest().permitAll()
 				.and()
 			.httpBasic().and()
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()

@@ -22,40 +22,37 @@ import br.edu.ufcg.pharma.api.config.property.CCCPharmaApiProperty;
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class CorsFiltro implements Filter {
 
-	@Autowired
-	private CCCPharmaApiProperty cccPharmaApiProperty;
+private String origemPermitida = "http://localhost:4200";
 	
 	@Override
-	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
-			throws IOException, ServletException {
-		
-		HttpServletRequest request = (HttpServletRequest) req;
-		HttpServletResponse response = (HttpServletResponse) res;
-		
-		response.setHeader("Access-Control-Allow-Origin", cccPharmaApiProperty.getOrigemPermitida());
-		response.setHeader("Access-Control-Allow-Credentials", "true");
-		
-		if (request.getMethod().equals("OPTIONS") && cccPharmaApiProperty.getOrigemPermitida().equals(request.getHeader("Origin"))) {
-			response.setHeader("Access-Control-Allow-Methods", "POST, GET, DELETE, PUT, OPTIONS");
-			response.setHeader("Access-Control-Allow-Headers", "Authorization, Content-type, Accept");
-			response.setHeader("Access-Control-Max-Age", "3600");
+	public void init(FilterConfig filterConfig) throws ServletException {
+		// TODO Auto-generated method stub
 
-			response.setStatus(HttpServletResponse.SC_OK);
-		} else {
-			chain.doFilter(req, res);
-		}
 	}
-	
+
+	@Override
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+			throws IOException, ServletException {
+		HttpServletRequest req = (HttpServletRequest) request;
+		HttpServletResponse resp = (HttpServletResponse) response;
+		
+		resp.setHeader("Access-Control-Allow-Origin", origemPermitida);
+		resp.setHeader("Access-Control-Allow-Credentials", "true");
+
+		if("OPTIONS".equals(req.getMethod())&& origemPermitida.equals(req.getHeader("Origin"))) {
+			resp.setHeader("Access-Control-Allow-Methods", "POST, GET, DELETE, PUT, OPTIONS");
+			resp.setHeader("Access-Control-Allow-Methods", "Authorization, Content-Type, Accept");
+			resp.setHeader("Access-Control-Max-Age", "3600");
+			
+			resp.setStatus(HttpServletResponse.SC_OK);
+		}else {
+			chain.doFilter(request, response);
+		}
+
+	}
+
 	@Override
 	public void destroy() {
 		// TODO Auto-generated method stub
-		
 	}
-
-	@Override
-	public void init(FilterConfig arg0) throws ServletException {
-		// TODO Auto-generated method stub
-	}
-	
-
 }
