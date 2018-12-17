@@ -9,23 +9,28 @@ import { ShoppingCartComponent } from './home/shopping-cart/shopping-cart.compon
 import { AdminLotsComponent } from './admin/admin-lots/admin-lots.component';
 import { UsuarioComponent } from './home/usuario/usuario.component';
 import { AdminVendasComponent } from './admin/admin-vendas/admin-vendas.component';
+import { AuthGuard } from './guard';
 
 const routes: Routes = [
-  {path:'', component: HomeComponent,
-   children: [
-    {path:'', component: ListProductsComponent},
-    {path:'products/:category', component: ListProductsComponent},
-    {path:'product/:id', component: ProductComponent},
-    {path:'shopping-cart', component: ShoppingCartComponent},
-    {path:'usuario', component: UsuarioComponent}
-  ]},
-  {path: 'admin', component: AdminComponent,
-   children: [
-    {path:'products', component: AdminProductsComponent},
-    {path:'lotes', component: AdminLotsComponent},
-    {path:'vendas', component: AdminVendasComponent}
-   ]}
-   
+  {
+    path: '', component: HomeComponent,
+    children: [
+      { path: '', component: ListProductsComponent, canActivate: [AuthGuard] },
+      { path: 'products/:category', component: ListProductsComponent },
+      { path: 'product/:id', component: ProductComponent },
+      { path: 'shopping-cart', component: ShoppingCartComponent },
+      { path: 'usuario', component: UsuarioComponent }
+    ]
+  },
+  {
+    path: 'admin', component: AdminComponent,
+    children: [
+      { path: 'products', component: AdminProductsComponent },
+      { path: 'lotes', component: AdminLotsComponent },
+      { path: 'vendas', component: AdminVendasComponent }
+    ]
+  }
+
 ];
 
 @NgModule({
