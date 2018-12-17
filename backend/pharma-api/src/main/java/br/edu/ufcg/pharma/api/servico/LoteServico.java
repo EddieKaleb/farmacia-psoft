@@ -1,5 +1,7 @@
 package br.edu.ufcg.pharma.api.servico;
 
+import java.util.List;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -9,7 +11,6 @@ import br.edu.ufcg.pharma.api.model.Lote;
 import br.edu.ufcg.pharma.api.model.LoteSituacao;
 import br.edu.ufcg.pharma.api.repositorio.LoteRepositorio;
 import br.edu.ufcg.pharma.api.repositorio.LoteSituacaoRepositorio;
-import br.edu.ufcg.pharma.api.repositorio.ProdutoSituacaoRepositorio;
 import br.edu.ufcg.pharma.api.servico.exception.LoteQuantidadeValorInvalidoException;
 
 @Service
@@ -64,5 +65,13 @@ public class LoteServico {
 		loteSalvo.setQuantidade(0);
 		this.estoqueServico.atualizar(loteSalvo);
 		this.loteRepositorio.delete(id);
+	}
+	
+	public void removerTodosPorProdutoId(Integer produtoId) {
+		List<Lote> lotes = this.loteRepositorio.findAllByProdutoId(produtoId);
+		
+		for (Lote l : lotes) {
+			this.loteRepositorio.delete(l.getId());
+		}
 	}
 }

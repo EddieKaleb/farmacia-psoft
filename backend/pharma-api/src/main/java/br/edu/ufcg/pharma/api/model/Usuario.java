@@ -24,24 +24,27 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	
+	@NotNull
 	@Size(min = 1, max = 150)
 	@Column(name = "NOME")
 	private String nome;
 	
 	@CPF
+	@NotNull
 	@Column(name = "CPF", unique = true)
 	private String cpf;
 	
-	@Size(min = 1, max = 30)
+	@Size(min = 1, max = 20)
+	@NotNull
 	@Column(name = "RG", unique = true)
 	private String rg;
 	
 	@NotNull
-	@Size(min = 1, max = 300)
+	@Size(min = 4, max = 300)
 	@Column(name = "SENHA")
 	private String senha;
 	
-	@Size(min = 1, max = 100)
+	@Size(min = 0, max = 100)
 	@Column(name = "ENDERECO")
 	private String endereco;
 	

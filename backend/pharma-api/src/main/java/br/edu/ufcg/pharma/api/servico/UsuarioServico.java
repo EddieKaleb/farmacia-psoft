@@ -47,7 +47,7 @@ public class UsuarioServico {
 			throw new EmptyResultDataAccessException(1);
 		}
 		boolean compare = BCrypt.checkpw(usuario.getSenha(), usuarioSalvo.getSenha());
-		return compare == true ? usuario : null;
+		return compare == true ? usuarioSalvo : null;
 	}
 	
 

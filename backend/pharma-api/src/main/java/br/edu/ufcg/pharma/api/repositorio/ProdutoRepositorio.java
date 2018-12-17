@@ -9,5 +9,4 @@ import br.edu.ufcg.pharma.api.model.Produto;
 public interface ProdutoRepositorio extends JpaRepository<Produto, Integer>{
 
 	public List<Produto> findAllByCategoriaId(Integer id);
-
 }

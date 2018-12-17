@@ -12,21 +12,21 @@ export class VendaListItemComponent implements OnInit {
 
   @Input() venda: Venda;
   active: boolean;
-  
+
   constructor(private vendasService: VendasService,
     private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.active = true;
   }
+  /*
+    removeVenda(){
+      this.vendasService.removeVenda(this.venda.id).subscribe();
+    }
 
-  removeVenda(){
-    this.vendasService.removeVenda(this.venda.id).subscribe();
-  }
-
-  finalizaVenda(){
-    this.vendasService.finalizaVenda(this.venda.id).subscribe();
-  }
-  }
+    finalizaVenda(){
+      this.vendasService.finalizaVenda(this.venda.id).subscribe();
+    }
+  }*/
 
 }

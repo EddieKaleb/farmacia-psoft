@@ -12,7 +12,6 @@ import { AuthenticationService } from 'src/app/service/auth.service';
 export class LoginComponent implements OnInit {
 
   loading = false;
-  returnUrl: string;
   error = false;
 
   constructor(
@@ -29,7 +28,14 @@ export class LoginComponent implements OnInit {
     this.authenticationService.login(form)
       .subscribe(
         data => {
-          this.router.navigate([this.returnUrl]);
+          this.loading = false;
+          if (data) {
+            if (data.tipo.papel == "Admin") {
+              this.router.navigate(["/admin"]);
+            } else {
+              this.router.navigate(["/"]);
+            }
+          }
         },
         error => {
           this.error = true;

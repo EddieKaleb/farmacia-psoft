@@ -64,7 +64,7 @@ public class ProdutoRecurso {
 	@DeleteMapping("/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void remover(@PathVariable Integer id) {
-		this.produtoRepositorio.delete(id);
+		this.produtoServico.remover(id);
 	}
 	
 	@PutMapping("/{id}")

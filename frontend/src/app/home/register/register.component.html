@@ -1,12 +1,28 @@
 <form #form="ngForm" novalidate>
   <div class="pv5 ph6 ">
     <h1 class="o-40  mb4 fw7 ">Cadastro</h1>
-    <label class="f6 o-40">Email</label>
-    <input class="w5 mb4 bn h2" name="username" ngModel required>
-    <label class="f6 mt3 o-40">Senha</label>
+    <label class="f6 o-40">Nome*</label>
+    <input class="w5 mb4 bn h2" name="nome" ngModel required>
+
+
+    <label class="f6 o-40">Email*</label>
+    <input class="w5 mb4 bn h2" name="email" ngModel required>
+
+    <label class="f6 mt3 o-40">Senha*</label>
     <input class="w5 mb4 bn h2" type="password" name="senha" ngModel required>
-    <div *ngIf="error" class="alert alert-danger tc">Credenciais inválidas</div>
+
+    <label class="f6 o-40">CPF*</label>
+    <input class="w5 mb4 bn h2" name="cpf" ngModel required>
+
+    <label class="f6 o-40">RG*</label>
+    <input class="w5 mb4 bn h2" name="rg" ngModel required>
+
+    <label class="f6 o-40">Endereço</label>
+    <input class="w5 mb4 bn h2" name="endereco" ngModel required>
+
     <div *ngIf="loading" class="alert-success">Aguarde...</div>
+    <div *ngIf="success" class="alert-success">Cadastrado com Sucesso!</div>
+    <div *ngIf="error" class="alert alert-danger tc">{{ errorMessage }}</div>
     <button class="w4 mt4 ml5 bn bg-blue grow f4 white " (click)="onSubmit(form.value)">Registrar</button>
   </div>
 </form>
