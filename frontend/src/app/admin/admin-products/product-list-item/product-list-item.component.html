@@ -1,26 +1,28 @@
 <main>
-  <img [src]="product.image" height="200">
+  <img [src]="product.caminhoImagem" height="200">
 
   <section class="info">
     <label>Nome:</label>
-    <div>{{product.name}}</div>
+    <div>{{product.nome}}</div>
+    <label>Fabricante:</label>
+    <div>{{product.nomeFabricante}}</div>
   </section>
 
   <section class="info">
-    <label>Quantidade:</label>
-    <div >{{product.quant}}</div>
+    <label>Categoria:</label>
+    <div >{{product.categoria.nome}}</div>
   </section>
 
   <section class="info">
     <label>Valor:</label>
-    <div>R$ {{product.oldPrice}}</div>
+    <div>R$ {{ getOldPrice()}}</div>
   </section>
 
   <section class="info">
-    <label>Desconto:</label>
+    <label>Quantidade:</label>
     <div>{{product.promo}}</div>
   </section>
 
-  <img id="remove" src="/assets/img/cancel.png">
+  <img id="remove" src="/assets/img/cancel.png" (click)="delete()">
     
 </main>

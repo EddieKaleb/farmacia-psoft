@@ -28,6 +28,7 @@ import { ReservaComponent } from './home/usuario/reserva/reserva.component';
 import { AdminVendasComponent } from './admin/admin-vendas/admin-vendas.component';
 import { VendaListItemComponent } from './admin/admin-vendas/venda-list-item/venda-list-item.component';
 import { AdminAddVendaComponent } from './admin/admin-vendas/admin-add-venda/admin-add-venda.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -55,12 +56,13 @@ import { AdminAddVendaComponent } from './admin/admin-vendas/admin-add-venda/adm
     ReservaComponent,
     AdminVendasComponent,
     VendaListItemComponent,
-    AdminAddVendaComponent
+    AdminAddVendaComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     ModalModule.forRoot(),
   ],
   providers: [],

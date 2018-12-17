@@ -1,8 +1,47 @@
 main{
     padding: 25px;
+    text-align: center;
 }
 
-div{
-    display: flex;
-    flex-direction: column;
+.inlineP{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.inlineP input{
+    width: 90%
+}
+
+.inlineP div{
+    text-align: start;
+}
+
+.inlineP2 div{
+    text-align: start;
+}
+
+.inlineP2{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    grid-gap: 10px;
+}
+
+.inlineP2 input{
+    width: 85%;
+}
+
+button{
+    margin-top: 30px;
+}
+
+.disable{
+    opacity: 0.4;
+
+}
+
+.error{
+    border-color: rgba(255, 27, 27, 0.527);
+    border-radius: 5px;
 }

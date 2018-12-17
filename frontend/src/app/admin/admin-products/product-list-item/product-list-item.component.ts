@@ -7,10 +7,17 @@ import Product from 'src/app/model/product.module';
   styleUrls: ['./product-list-item.component.css']
 })
 export class ProductListItemComponent implements OnInit {
-  @Input() product: Product;
+  @Input() product: any;
   constructor() { }
 
   ngOnInit() {
   }
 
+  getOldPrice(){
+    return this.product.preco.toFixed(2);
+  }
+
+  delete(){
+    
+  }
 }
