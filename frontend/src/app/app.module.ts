@@ -29,6 +29,7 @@ import { AdminVendasComponent } from './admin/admin-vendas/admin-vendas.componen
 import { VendaListItemComponent } from './admin/admin-vendas/venda-list-item/venda-list-item.component';
 import { AdminAddVendaComponent } from './admin/admin-vendas/admin-add-venda/admin-add-venda.component';
 import { AdminProductDetailsComponent } from './admin/admin-products/product-list-item/admin-product-details/admin-product-details.component';
+import { AdminAddLotComponent } from './admin/admin-lots/admin-add-lot/admin-add-lot.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { AdminProductDetailsComponent } from './admin/admin-products/product-lis
     AdminVendasComponent,
     VendaListItemComponent,
     AdminAddVendaComponent,
-    AdminProductDetailsComponent
+    AdminProductDetailsComponent,
+    AdminAddLotComponent
   ],
   imports: [
     BrowserModule,
@@ -67,6 +69,8 @@ import { AdminProductDetailsComponent } from './admin/admin-products/product-lis
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [LoginComponent,RegisterComponent, AdminAddProductComponent, AdminDescontosComponent, AdminAddVendaComponent, AdminProductDetailsComponent],
+  entryComponents: [LoginComponent,RegisterComponent, AdminAddProductComponent, 
+    AdminDescontosComponent, AdminAddVendaComponent, AdminProductDetailsComponent,
+    AdminAddLotComponent],
 })
 export class AppModule { }
